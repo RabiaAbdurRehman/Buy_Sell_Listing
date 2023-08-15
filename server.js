@@ -7,6 +7,7 @@ const express = require('express');
 const morgan = require('morgan');
 
 const PORT = process.env.PORT || 8080;
+//set up the app
 const app = express();
 
 app.set('view engine', 'ejs');
@@ -15,6 +16,7 @@ app.set('view engine', 'ejs');
 // 'dev' = Concise output colored by response status for development use.
 //         The :status token will be colored red for server error codes, yellow for client error codes, cyan for redirection codes, and uncolored for all other codes.
 app.use(morgan('dev'));
+// body parser
 app.use(express.urlencoded({ extended: true }));
 app.use(
   '/styles',
@@ -24,6 +26,7 @@ app.use(
     isSass: false, // false => scss, true => sass
   })
 );
+//public assets which will never change.
 app.use(express.static('public'));
 
 // Separated Routes for each Resource
