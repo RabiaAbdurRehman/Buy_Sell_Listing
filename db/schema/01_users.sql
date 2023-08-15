@@ -6,5 +6,5 @@ CREATE TABLE users (
   email VARCHAR(255) NOT NULL,
   password VARCHAR(255) NOT NULL,
   admin BOOLEAN,
-  created_at TIMESTAMP
+  created_at TIMESTAMP DEFAULT statement_timestamp()
 );

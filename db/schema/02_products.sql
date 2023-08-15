@@ -8,5 +8,5 @@ CREATE TABLE products  (
   description TEXT NOT NULL,
   image_url VARCHAR(255) NOT NULL,
   available BOOLEAN,
-  created_at TIMESTAMP
+  created_at TIMESTAMP DEFAULT statement_timestamp()
 );
