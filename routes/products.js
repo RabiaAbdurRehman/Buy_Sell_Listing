@@ -4,9 +4,12 @@ const products_api = require('./products-api.js');
 const productsQueries = require('../db/queries/products');
 
 router.get('/', (req, res) => {
+
     productsQueries.getProductsFromDB()
+
     .then(products => {
-       res.render('products', {products});
+      const templateVars = {products: products, user: '' };
+       res.render('products', templateVars);
     })
     .catch(err => {
        res

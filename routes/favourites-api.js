@@ -4,7 +4,7 @@ const router = express.Router();
 const favouriteQueries = require('../db/queries/favourites');
 
 router.post('/', (req, res) => {
-  console.log(req.session);
+  console.log("TEST", req.body);
   const product_id = req.body.productId;
   //const user_id = req.session.userId;//we need user login here.
   const dummy_user_id = 1;

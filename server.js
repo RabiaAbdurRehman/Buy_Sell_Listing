@@ -5,6 +5,8 @@ require('dotenv').config();
 const sassMiddleware = require('./lib/sass-middleware');
 const express = require('express');
 const morgan = require('morgan');
+const bodyParser    = require("body-parser");
+
 
 const usersRoutes = require('./routes/users');
 const usersApiRoutes = require('./routes/users-api');
@@ -24,7 +26,7 @@ app.set('view engine', 'ejs');
 // Separated Routes for each Resource
 // Note: Endpoints that return data (eg. JSON) usually start with `/api`
 //public assets which will never change.
-
+app.use(bodyParser.urlencoded({ extended: true }));
 app.use(express.static('public'));
 app.use('/products', productsRoutes);
 app.use('/api/products', productsApiRoutes);
