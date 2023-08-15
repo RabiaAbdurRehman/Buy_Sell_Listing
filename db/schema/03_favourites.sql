@@ -4,5 +4,5 @@ CREATE TABLE favourites (
   id SERIAL PRIMARY KEY NOT NULL,
   user_id INTEGER NOT NULL REFERENCES users(id) ON DELETE CASCADE,
   product_id INTEGER NOT NULL REFERENCES products(id) ON DELETE CASCADE,
-  created_at TIMESTAMP
+  created_at TIMESTAMP DEFAULT statement_timestamp()
 );
