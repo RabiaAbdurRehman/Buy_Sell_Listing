@@ -5,11 +5,13 @@ require('dotenv').config();
 const sassMiddleware = require('./lib/sass-middleware');
 const express = require('express');
 const morgan = require('morgan');
-const productsApiRoutes = require('./routes/products-api');
-const productsRoutes = require('./routes/products');
 const usersRoutes = require('./routes/users');
 const usersApiRoutes = require('./routes/users-api');
-const favouritesRoutes = require('./routes/favourites'); 
+const favouritesRoutes = require('./routes/favourites');
+const productsApiRoutes = require('./routes/products-api')
+const productsRoutes = require('./routes/products')
+const favouriteApiRoutes = require('./routes/favourites-api')
+const favouritesProduct = require('./routes/favourites')
 
 
 const PORT = process.env.PORT || 8080;
@@ -36,9 +38,8 @@ app.use('/api/products', productsApiRoutes);
 app.use('/products', productsRoutes);
 app.use('/api/users', usersApiRoutes);
 app.use('/users', usersRoutes);
-app.use('/api/favourites', favouritesRoutes);
-
-
+app.use('/api/favourites', favouriteApiRoutes);
+app.use('/favourites', favouritesProduct);
 
 // Separated Routes for each Resource
 // Mount all resource routes
@@ -55,7 +56,7 @@ app.use('/api/favourites', favouritesRoutes);
 // Separate them into separate routes files (see above).
 
 app.get('/', (req, res) => {
-  res.render('index');
+  res.redirect('/products');
 });
 
 
