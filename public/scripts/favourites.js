@@ -1,4 +1,3 @@
-
 $(() => {
   $('#fetch-favourites').on('click', () => {
     $.ajax({
@@ -9,9 +8,8 @@ $(() => {
       const $favouriteList = $('#favourite');
       $favouriteList.empty();
 
-      for(const favourite of response.favourites) {
-        $(`<li class="favourite">`).text(favourite.product_id).appendTo($favouriteList);
-      }
+      // Update the list with the message
+      $(`<li class="favourite">`).text(response.message).appendTo($favouriteList);
     });
   });
 });
