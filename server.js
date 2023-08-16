@@ -7,6 +7,8 @@ const express = require('express');
 const morgan = require('morgan');
 const productsApiRoutes = require('./routes/products-api')
 const productsRoutes = require('./routes/products')
+const favouriteApiRoutes = require('./routes/favourites-api')
+const favouritesProduct = require('./routes/favourites')
 
 
 const PORT = process.env.PORT || 8080;
@@ -31,6 +33,8 @@ app.use(
 app.use(express.static('public'));
 app.use('/api/products', productsApiRoutes);
 app.use('/products', productsRoutes);
+app.use('/api/favourites', favouriteApiRoutes);
+app.use('/favourites', favouritesProduct);
 
 // Separated Routes for each Resource
 // Mount all resource routes
@@ -47,7 +51,7 @@ app.use('/products', productsRoutes);
 // Separate them into separate routes files (see above).
 
 app.get('/', (req, res) => {
-  res.render('index');
+  res.redirect('/products');
 });
 
 
