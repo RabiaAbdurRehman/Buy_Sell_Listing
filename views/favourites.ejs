@@ -40,14 +40,13 @@
 
         <% for(let product of products) { %>
           <tr>
-            <td> <img width="120" height="120" src=<%=product.thumbnail_url %>> </td>
+            <td> <img width="120" height="120" src="<%= product.image_url %>"> </td>
             <td>
               <%= product.title %>
             </td>
 
             <td>
               <form method="POST" action="/favourites/delete">
-                <input name="product_id" value="<%= product.id %>">
                 <button type="submit" class="btn btn-outline-danger" name="deleteButton">
                   Delete from list
                 </button>

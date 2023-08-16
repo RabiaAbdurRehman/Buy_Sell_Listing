@@ -6,22 +6,21 @@ const addProductToFavourites = function(userId, productId) {
     VALUES ($1, $2)
     RETURNING *
   `, [userId, productId])
-  .then(data => {
-    return data.rows[0];
-  });
+    .then(data => {
+      return data.rows[0];
+    });
 };
 //display favourites
-const  getFavouritesByUserId = function(userId) {
+const getFavouritesByUserId = function(userId) {
   return db.query(`
-  SELECT favourites.id, title, description, products.id AS product_id, image_url, price
-  FROM favourites
-  JOIN products ON product_id = products.id
-  WHERE favourites.user_id = $1
-  ORDER BY favourites.created_at;
+    SELECT *
+    FROM favourites
+    JOIN products on products.id = product_id
+    WHERE favourites.user_id = $1
   `, [userId])
-    .then((data) => {
-      //console.log("CHECKING", result.rows);
+    .then(data => {
       return data.rows;
+
     })
     .catch((error) => {
       console.error(error.message);
@@ -40,3 +39,8 @@ const removeProductFromFavourites = function(userId, productId) {
 
 
 module.exports = {addProductToFavourites, getFavouritesByUserId};
+
+
+
+
+  
