@@ -4,11 +4,12 @@ $(() => {
     let productId = event.currentTarget.dataset.productid;
     $.ajax({
       method: 'POST',
-      data: { productId },
+      data: { productId, userId: 1 },
       url: '/api/favourites'
     })
       .done((response) => {
         console.log(response);
+        
         //we can check lines after when we have login.
         // const $favouriteList = $('#favourite');
         // $favouriteList.empty();
