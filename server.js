@@ -7,7 +7,6 @@ const express = require('express');
 const morgan = require('morgan');
 const usersRoutes = require('./routes/users');
 const usersApiRoutes = require('./routes/users-api');
-const favouritesRoutes = require('./routes/favourites');
 const productsApiRoutes = require('./routes/products-api')
 const productsRoutes = require('./routes/products')
 const favouriteApiRoutes = require('./routes/favourites-api')
