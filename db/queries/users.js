@@ -6,6 +6,8 @@ const getUsers = () => {
       return data.rows;
     });
 };
+
+
 // Get user's products
 const getUserProducts = function(userId) {
   return db.query(`
@@ -18,4 +20,4 @@ const getUserProducts = function(userId) {
 };
 
 
-module.exports = { getUsers };
+module.exports = { getUsers, getUserProducts };

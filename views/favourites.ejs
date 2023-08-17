@@ -13,61 +13,57 @@
   <link rel="stylesheet" href="/styles/main.css" />
   <link rel="stylesheet" href="/styles/layout.css" />
 
-<script src="/vendor/jquery-3.0.0.js"></script>
-<script defer src="/scripts/favourites.js"></script>
+  <script src="/vendor/jquery-3.0.0.js"></script>
+  <script defer src="/scripts/favourites.js"></script>
 
-<title>Favourites</title>
+  <title>Favourites</title>
 
 
 </head>
 
 <body>
-    <main style="margin: 1em;">
-      <h3>Your Favourites</h3>
+  <main style="margin: 1em;">
+    <h3>Your Favourites</h3>
 
-      <table class="table">
-        <thead>
+    <table class="table">
+      <thead>
+        <tr>
+          <th scope="col">Photo</th>
+          <th scope="col">Product</th>
+          <th scope="col">Delete from Favourites</th>
+        </tr>
+      </thead>
+
+
+      <tbody>
+
+
+        <% for(let product of products) { %>
           <tr>
-            <th scope="col">Photo</th>
-            <th scope="col">Product</th>
-            <th scope="col">Delete from Favourites</th>
+            <td> <img width="120" height="120" src=<%=product.thumbnail_url %>> </td>
+            <td>
+              <%= product.title %>
+            </td>
+
+            <td>
+              <form method="POST" action="/favourites/delete">
+                <input name="product_id" value="<%= product.id %>">
+                <button type="submit" class="btn btn-outline-danger" name="deleteButton">
+                  Delete from list
+                </button>
+              </form>
+            </td>
           </tr>
-        </thead>
+          <% } %>
 
 
-        <tbody>
+      </tbody>
 
 
-       <% for(let product of products) { %>
-            <tr>
-              <td> <img width="120" height="120" src=<%=product.thumbnail_url %>> </td>
-              <td>
-                <%= product.title %>
-              </td>
-
-              <td>
-                <form method="POST" action="/favourites/delete">
-                  <input name="product_id" value="  ">
-                  <button type="submit" class="btn btn-outline-danger" name="deleteButton">
-                    Delete from list
-                  </button>
-                </form>
-              </td>
-            </tr>
-       <% } %>
+    </table>
 
 
-        </tbody>
-
-
-      </table>
-
-
-      </main>
+  </main>
 </body>
 
 </html>
-
-
-
-

@@ -5,6 +5,9 @@ require('dotenv').config();
 const sassMiddleware = require('./lib/sass-middleware');
 const express = require('express');
 const morgan = require('morgan');
+const usersRoutes = require('./routes/users');
+const usersApiRoutes = require('./routes/users-api');
+const favouritesRoutes = require('./routes/favourites');
 const productsApiRoutes = require('./routes/products-api')
 const productsRoutes = require('./routes/products')
 const favouriteApiRoutes = require('./routes/favourites-api')
@@ -33,6 +36,8 @@ app.use(
 app.use(express.static('public'));
 app.use('/api/products', productsApiRoutes);
 app.use('/products', productsRoutes);
+app.use('/api/users', usersApiRoutes);
+app.use('/users', usersRoutes);
 app.use('/api/favourites', favouriteApiRoutes);
 app.use('/favourites', favouritesProduct);
 
