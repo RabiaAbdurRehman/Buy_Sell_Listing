@@ -6,9 +6,27 @@ const addProductToFavourites = function(userId, productId) {
     VALUES ($1, $2)
     RETURNING *
   `, [userId, productId])
-  .then(data => {
-    return data.rows[0];
-  });
+    .then(data => {
+      return data.rows[0];
+    });
 };
 
-module.exports = {addProductToFavourites};
+
+const getFavouritesByUserId = function(userId) {
+  return db.query(`
+    SELECT *
+    FROM favourites
+    JOIN products on products.id = product_id
+    WHERE favourites.user_id = $1
+  `, [userId])
+    .then(data => {
+      return data.rows;
+
+    })
+    .catch((error) => {
+      console.error(error.message);
+    });
+};
+
+
+  module.exports = { addProductToFavourites, getFavouritesByUserId };
