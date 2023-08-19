@@ -1,20 +1,3 @@
-// const express = require('express');
-// const router = express.Router();
-// const productsQueries = require('../db/queries/products');
-
-//
-
-// router.get('/', (req, res) => {
-//   const user = req.session.user;
-
-//   if (user && user.isAdmin) {
-//     return res.render("all_products", { user });
-//   }
-//   res.redirect('/');
-//   return;
-// });
-
-
 //see all products as an admin (edit, delete, add)
 
 const express = require('express');

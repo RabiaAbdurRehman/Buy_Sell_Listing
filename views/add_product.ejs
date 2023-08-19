@@ -20,19 +20,19 @@
   <link rel="stylesheet" href="/styles/main.css" />
   <link rel="stylesheet" href="/styles/layout.css" />
 
- <!-- Bulma CSS-->
- <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bulma@0.9.4/css/bulma-rtl.min.css">
+  <!-- Bulma CSS-->
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bulma@0.9.4/css/bulma-rtl.min.css">
   <script src="/vendor/jquery-3.0.0.js"></script>
   <script defer src="/scripts/products.js"></script>
   <script defer src="/scripts/favourites.js"></script>
 
-   <!-- Font awesome -->
-   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.1/css/all.min.css"
-   integrity="sha512-MV7K8+y+gLIBoVD59lQIYicR65iaqukzvf/nwasF0nqhPay5w/9lJmVM2hMDcnK1OnMGCdVK+iQrJ7lzPJQd1w=="
-   crossorigin="anonymous" referrerpolicy="no-referrer" />
- <script src="https://cdnjs.cloudflare.com/ajax/libs/timeago.js/4.0.2/timeago.min.js"
-   integrity="sha512-SVDh1zH5N9ChofSlNAK43lcNS7lWze6DTVx1JCXH1Tmno+0/1jMpdbR8YDgDUfcUrPp1xyE53G42GFrcM0CMVg=="
-   crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+  <!-- Font awesome -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.1/css/all.min.css"
+    integrity="sha512-MV7K8+y+gLIBoVD59lQIYicR65iaqukzvf/nwasF0nqhPay5w/9lJmVM2hMDcnK1OnMGCdVK+iQrJ7lzPJQd1w=="
+    crossorigin="anonymous" referrerpolicy="no-referrer" />
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/timeago.js/4.0.2/timeago.min.js"
+    integrity="sha512-SVDh1zH5N9ChofSlNAK43lcNS7lWze6DTVx1JCXH1Tmno+0/1jMpdbR8YDgDUfcUrPp1xyE53G42GFrcM0CMVg=="
+    crossorigin="anonymous" referrerpolicy="no-referrer"></script>
 </head>
 
 <body>
@@ -40,25 +40,32 @@
   <%- include('partials/_header') %>
     <main style="margin: 1em;">
 
-  <form method="post" action="/api/add-product">
-   <fieldset>
-      <legend>Add New Product</legend>
+      <form method="post" action="/api/add-product">
+        <fieldset>
+          <legend>Add New Product</legend>
 
-      <label>Name</label><br>
-      <input type="text" name="title"><br>
-      <label>price</label><br>
-      <input type="number" name="price"><br>
-       <label>Description</label><br>
-       <input type="text" name="description"><br>
-       <label>Picture</label><br>
-       <input type="" name="picture"><br>
-   </fieldset>
-<button type="submit">
-      Add
-    </button>
-  </form>
-<tbody>
+          <label>Name</label><br>
+          <input type="text" name="title"><br>
+
+          <label>Price</label><br>
+          <input type="number" name="price"><br>
+
+          <label>Description</label><br>
+          <input type="text" name="description"><br>
+
+          <label>Picture</label><br>
+          <input type="" name="picture"><br>
+
+        </fieldset>
+
+        <br>
+        <button type="submit">
+          Add
+        </button>
+      </form>
+      <tbody>
 
 
 </body>
+
 </html>
