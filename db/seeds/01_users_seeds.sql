@@ -1,8 +1,12 @@
 INSERT INTO users (name, email, password, admin) VALUES
 ('Anastasia','ar@gmail.com','$2a$10$FB/BOAVhpuLvpOREQVmvmezD4ED/.JBIDRh70tGevYzYzQgFId2u.', True);
 
+-- password 111
+
 INSERT INTO users (name, email, password, admin) VALUES
 ('Rabia','rar@gmail.com','$2a$10$FB/BOAVhpuLvpOREQVmvmezD4ED/.JBIDRh70tGevYzYzQgFId2u.', False);
+
+-- password 000
 
 INSERT INTO users (name, email, password, admin) VALUES
 ('Silvia','sc@gmail.com','$2a$10$FB/BOAVhpuLvpOREQVmvmezD4ED/.JBIDRh70tGevYzYzQgFId2u.', False);
