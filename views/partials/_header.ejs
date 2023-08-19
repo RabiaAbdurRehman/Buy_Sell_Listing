@@ -14,11 +14,13 @@
         <div class="ml-auto" style="display: flex;">
           <div>
             <a class="nav-link" href="/favourites">My Favourites</a>
+            <a class="nav-link" href="/all_products">All Products</a>
+            <a class="nav-link" href="/add_product">Add New Product</a>
           </div>
 
           <% if(user){ %>
             <form id="login-form" class="login-form" method="POST" action="/logout">
-              <label>Welcome back, <%= user.name %> !</label>
+              <label>Welcome back, <%= user.name %>!</label>
                <button id="login-form_" type="submit" class="btn btn-secondary" >Logout</button>
             </form>
             <% } else{ %>
@@ -27,8 +29,6 @@
               </form>
           <% } %>
 
-          <!-- <form id="myform" method="post" action="/logout"></form>
-          <a onclick="event.preventDefault();document.getElementById('myform').submit();" href="/logout">Logout</a> -->
         </div>
       </div>
     </nav>

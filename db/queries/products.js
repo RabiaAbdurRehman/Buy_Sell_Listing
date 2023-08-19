@@ -8,7 +8,6 @@ function getProductsFromDB() {
 }
 
 
-
 // Get products sorted by price
 const getProductsByPrice = function() {
   return db.query(`
@@ -20,7 +19,8 @@ const getProductsByPrice = function() {
     });
 };
 
-const addNewProduct = function({ user_id, title, price, description, image_url, available}) {
+// Add new product to database
+const addNewProduct = function({ user_id, title, price, description, image_url, available }) {
   return db.query(`
     INSERT INTO products (user_id, title, price, description, image_url, available)
     VALUES ($1, $2, $3, $4, $5, $6)
@@ -30,5 +30,7 @@ const addNewProduct = function({ user_id, title, price, description, image_url, 
       return data.rows[0];
     });
 
-  };
-  module.exports = { getProductsFromDB, getProductsByPrice, addNewProduct };
+};
+
+
+module.exports = { getProductsFromDB, getProductsByPrice, addNewProduct };

@@ -12,7 +12,7 @@ router.post("/", (req, res) => {
     .addNewProduct({ ...body, user_id})
     .then((response) => {
       console.log(response.rows);
-      res.status(200).json({ message: "Product was added" });
+      res.status(200).json("Product was added");
     })
     .catch((err) => {
       res.status(500).json({ error: err.message });

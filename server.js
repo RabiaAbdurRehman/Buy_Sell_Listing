@@ -44,35 +44,56 @@ app.use(express.static('public'));
 
 // ROUTES
 
-const usersRoutes = require('./routes/users');
-const usersApiRoutes = require('./routes/users-api');
-const productsRoutes = require('./routes/products');
-const productsApiRoutes = require('./routes/products-api');
-const favouritesProduct = require('./routes/favourites');
-const favouriteApiRoutes = require('./routes/favourites-api');
+//Login
 const loginRoute = require('./routes/login');
 const loginApiRoute = require('./routes/login-api');
 const logoutRoute = require('./routes/logout');
+
+//Users
+const usersRoutes = require('./routes/users');
+const usersApiRoutes = require('./routes/users-api');
+
+//Favourites
+const favouritesProduct = require('./routes/favourites');
+const favouriteApiRoutes = require('./routes/favourites-api');
+
+//Products
+const productsRoutes = require('./routes/products');
+const productsApiRoutes = require('./routes/products-api');
+
 const addProductRoute = require('./routes/add_product');
 const addProductApiRoute = require('./routes/add_product-api');
+
 const allProductsRoute = require('./routes/all_products');
+const allProductsApiRoute = require('./routes/all_products-api');
 
-app.use('/products', productsRoutes);
-app.use('/all_products', allProductsRoute);
-app.use('/add_product', addProductRoute);
-app.use('/api/products', productsApiRoutes);
-app.use('/api/add-product', addProductApiRoute);
 
-app.use('/users', usersRoutes);
-app.use('/api/users', usersApiRoutes);
-
-app.use('/favourites', favouritesProduct);
-app.use('/api/favourites', favouriteApiRoutes);
-
-// Auth
+// Login
 app.use('/login', loginRoute);
 app.use('/api/login', loginApiRoute);
 app.use('/logout', logoutRoute);
+
+// Users
+app.use('/users', usersRoutes);
+app.use('/api/users', usersApiRoutes);
+
+// Favourites
+app.use('/favourites', favouritesProduct);
+app.use('/api/favourites', favouriteApiRoutes);
+
+// Products
+app.use('/products', productsRoutes);
+app.use('/api/products', productsApiRoutes);
+
+app.use('/add_product', addProductRoute);
+app.use('/api/add-product', addProductApiRoute);
+
+app.use('/all_products', allProductsRoute);
+app.use('/api/all-products', allProductsApiRoute);
+
+
+
+
 
 
 
