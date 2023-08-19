@@ -10,7 +10,7 @@ router.get('/', (req, res) => {
     res.redirect('/');
     return;
   }
-  res.render("login", { user: {} });
+  res.render("login", { user: null });
 });
 
 

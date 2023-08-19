@@ -55,9 +55,10 @@ const loginApiRoute = require('./routes/login-api');
 const logoutRoute = require('./routes/logout');
 const addProductRoute = require('./routes/add_product');
 const addProductApiRoute = require('./routes/add_product-api');
-
+const allProductsRoute = require('./routes/all_products');
 
 app.use('/products', productsRoutes);
+app.use('/all_products', allProductsRoute);
 app.use('/add_product', addProductRoute);
 app.use('/api/products', productsApiRoutes);
 app.use('/api/add-product', addProductApiRoute);

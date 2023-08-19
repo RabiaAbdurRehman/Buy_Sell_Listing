@@ -74,7 +74,7 @@
         <th scope="col">Price</th>
       </tr>
     </thead>
-    <tbody>
+    <!-- <tbody>
       <% for(let product of products) { %>
         <tr>
           <td> <img width="120" height="120" src="<%= product.image_url %>"> </td>
@@ -106,6 +106,29 @@
 
         </tr>
         <% } %>
+    </tbody> -->
+
+
+    <tbody>
+      <% for(let product of products) { %>
+        <tr>
+          <section class="product">
+
+            <td> <img width="120" height="120" src="<%= product.image_url %>"> </td>
+
+            <td>
+              <h2 class="product_title"> </h2>
+              <%= product.title %>
+            </td>
+            <td>
+              <h3 class="product_price">$<%= product.price/100.0 %>
+              </h3>
+            </td>
+
+        </tr>
+        <% } %>
+
+          </section>
     </tbody>
   </table>
 
