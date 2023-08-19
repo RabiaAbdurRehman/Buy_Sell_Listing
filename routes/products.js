@@ -6,9 +6,8 @@ const productsQueries = require('../db/queries/products');
 router.get('/', (req, res) => {
 
     productsQueries.getProductsFromDB()
-
     .then(products => {
-      const templateVars = {products: products, user: '' };
+      const templateVars = {products, user: req.session.user };
        res.render('products', templateVars);
     })
     .catch(err => {

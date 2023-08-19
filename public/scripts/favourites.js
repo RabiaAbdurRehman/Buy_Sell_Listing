@@ -1,15 +1,14 @@
 $(() => {
   $('#products').on('click', 'li', (event) => {
-    //console.log("We are here now", event.currentTarget.dataset.productid)
     let productId = event.currentTarget.dataset.productid;
     $.ajax({
       method: 'POST',
-      data: { productId, userId: 1 },
+      data: { productId },
       url: '/api/favourites'
     })
       .done((response) => {
         console.log(response);
-        
+
         //we can check lines after when we have login.
         // const $favouriteList = $('#favourite');
         // $favouriteList.empty();

@@ -22,47 +22,48 @@
 </head>
 
 <body>
-  <main style="margin: 1em;">
-    <h3>Your Favourites</h3>
+  <%- include('partials/_header') %>
+    <main style="margin: 1em;">
+      <h3>Your Wishlist</h3>
 
-    <table class="table">
-      <thead>
-        <tr>
-          <th scope="col">Photo</th>
-          <th scope="col">Product</th>
-          <th scope="col">Delete from Favourites</th>
-        </tr>
-      </thead>
-
-
-      <tbody>
-
-
-        <% for(let product of products) { %>
+      <!-- display it in the same way as its shown on the main page, like cards -->
+      <table class="table">
+        <thead>
           <tr>
-            <td> <img width="120" height="120" src="<%= product.image_url %>"> </td>
-            <td>
-              <%= product.title %>
-            </td>
-
-            <td>
-              <form method="POST" action="/favourites/delete">
-                <button type="submit" class="btn btn-outline-danger" name="deleteButton">
-                  Delete from list
-                </button>
-              </form>
-            </td>
+            <th scope="col">Photo</th>
+            <th scope="col">Product</th>
+            <th scope="col">Price</th>
           </tr>
-          <% } %>
+        </thead>
 
 
-      </tbody>
+        <tbody>
+          <% for(let product of products) { %>
+            <tr>
+              <section class="product">
+
+                <td> <img width="120" height="120" src="<%= product.image_url %>"> </td>
+
+                <td>
+                  <h2 class="product_title"> </h2>
+                  <%= product.title %>
+                </td>
+                <td>
+                  <h3 class="product_price">$<%= product.price/100.0 %>
+                  </h3>
+                </td>
+
+            </tr>
+            <% } %>
+
+              </section>
+        </tbody>
 
 
-    </table>
+      </table>
 
 
-  </main>
+    </main>
 </body>
 
 </html>

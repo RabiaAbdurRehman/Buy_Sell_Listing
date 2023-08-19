@@ -1,9 +1,9 @@
 <header>
     <nav class="navbar navbar-expand-md navbar-dark bg-success">
       <a class="navbar-brand" href="/products">Petals & Bees Shop</a>
-      <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavAltMarkup"
-        aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
-        <span class="navbar-toggler-icon"></span>
+      <!-- <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavAltMarkup" -->
+        <!-- aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span> -->
       </button>
       <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
         <!-- <div class="navbar-nav">
@@ -13,8 +13,11 @@
 
         <div class="ml-auto" style="display: flex;">
           <div>
-            <a class="nav-link" href="/favourites?userId=1">My Favourites</a> <!--add query param (?userId=1) for show what user info must be shown for GET request-->
+            <a class="nav-link" href="/favourites">My Favourites</a>
           </div>
+
+          <form id="myform" method="post" action="/logout"></form>
+          <a onclick="event.preventDefault();document.getElementById('myform').submit();" href="/logout">Logout</a>
         </div>
       </div>
     </nav>

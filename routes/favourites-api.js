@@ -5,8 +5,8 @@ const favouriteQueries = require("../db/queries/favourites");
 
 router.post("/", (req, res) => {
   const product_id = req.body.productId;
-  const user_id = req.body.userId; //we need user login here.
-  //const dummy_user_id = 1;
+  console.log(req.session)
+  const user_id = req.session.user.id;
 
   favouriteQueries
     .addProductToFavourites(user_id, product_id)
