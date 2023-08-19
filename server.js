@@ -52,10 +52,15 @@ const favouritesProduct = require('./routes/favourites');
 const favouriteApiRoutes = require('./routes/favourites-api');
 const loginRoute = require('./routes/login');
 const loginApiRoute = require('./routes/login-api');
-const logoutRoute =require('./routes/logout')
+const logoutRoute = require('./routes/logout');
+const addProductRoute = require('./routes/add_product');
+const addProductApiRoute = require('./routes/add_product-api');
+
 
 app.use('/products', productsRoutes);
+app.use('/add_product', addProductRoute);
 app.use('/api/products', productsApiRoutes);
+app.use('/api/add-product', addProductApiRoute);
 
 app.use('/users', usersRoutes);
 app.use('/api/users', usersApiRoutes);
@@ -64,10 +69,9 @@ app.use('/favourites', favouritesProduct);
 app.use('/api/favourites', favouriteApiRoutes);
 
 // Auth
-app.use
 app.use('/login', loginRoute);
 app.use('/api/login', loginApiRoute);
-app.use('/logout', logoutRoute)
+app.use('/logout', logoutRoute);
 
 
 

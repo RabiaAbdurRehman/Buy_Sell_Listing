@@ -1,15 +1,10 @@
 const db = require('../connection');
 
-
-// const express = require('express');
-// const router  = express.Router();
-// const db = require('../db/connection');
-//show
 function getProductsFromDB() {
- return db.query('SELECT * FROM products LIMIT 10;')
- .then(data => {
-   return data.rows;
- });
+  return db.query('SELECT * FROM products LIMIT 100;')
+    .then(data => {
+      return data.rows;
+    });
 }
 
 
@@ -20,17 +15,20 @@ const getProductsByPrice = function() {
     SELECT * FROM products
     ORDER BY price;
   `)
-  .then(data => {
-    return data.rows;
-  });
+    .then(data => {
+      return data.rows;
+    });
 };
 
+const addNewProduct = function({ user_id, title, price, description, image_url, available}) {
+  return db.query(`
+    INSERT INTO products (user_id, title, price, description, image_url, available)
+    VALUES ($1, $2, $3, $4, $5, $6)
+    RETURNING *
+  `, [user_id, title, price, description, image_url, available])
+    .then(data => {
+      return data.rows[0];
+    });
 
-// router.get('/products', async (req, res) => {
-//   const products = await getProductsFromDB()
-//   res.json(products)
-// })
-
-
-
-module.exports = {getProductsFromDB, getProductsByPrice};
+  };
+  module.exports = { getProductsFromDB, getProductsByPrice, addNewProduct };

@@ -66,12 +66,12 @@
   </header>
 
 
-  <form>
+  <form method="post" action="/api/add-product">
    <fieldset>
       <legend>Add New Products</legend>
 
       <label>Name</label><br>
-      <input type="text" name="name"><br>
+      <input type="text" name="title"><br>
       <label>price</label><br>
       <input type="number" name="price"><br>
        <label>Description</label><br>
@@ -79,15 +79,12 @@
        <label>Picture</label><br>
        <input type="" name="picture"><br>
    </fieldset>
-</form>
-<tbody>
-
-
-<form method="POST" action="#">
-    <button type="submit" name="addProductButton">
+<button type="submit">
       Add
     </button>
   </form>
+<tbody>
+
 
 </body>
 </html>
