@@ -9,7 +9,9 @@ INSERT INTO users (name, email, password, admin) VALUES
 -- password 000
 
 INSERT INTO users (name, email, password, admin) VALUES
-('Silvia','sc@gmail.com','$2a$10$FB/BOAVhpuLvpOREQVmvmezD4ED/.JBIDRh70tGevYzYzQgFId2u.', False);
+('Silvia','sc@gmail.com','$2b$10$mUX4LUn8pasxLR3u20x9puhDzEygOPc6plpgFCAIRKV5k9XvEuHyK', False);
+
+-- password 333
 
 INSERT INTO users (name, email, password, admin) VALUES
 ('Teniola','to@gmail.com','$2a$10$FB/BOAVhpuLvpOREQVmvmezD4ED/.JBIDRh70tGevYzYzQgFId2u.', False);

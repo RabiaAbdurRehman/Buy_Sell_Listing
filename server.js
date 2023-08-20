@@ -29,6 +29,7 @@ app.use(
 
 app.use(express.urlencoded({ extended: true }));
 
+
 app.use(
   '/styles',
   sassMiddleware({
@@ -67,6 +68,10 @@ const addProductApiRoute = require('./routes/add_product-api');
 const allProductsRoute = require('./routes/all_products');
 const allProductsApiRoute = require('./routes/all_products-api');
 
+// <!-- SILVIA -->
+const editProductRoute = require('./routes/edit_product');
+const editProductApiRoute = require('./routes/edit_product-api');
+
 
 // Login
 app.use('/login', loginRoute);
@@ -91,6 +96,9 @@ app.use('/api/add-product', addProductApiRoute);
 app.use('/all_products', allProductsRoute);
 app.use('/api/all-products', allProductsApiRoute);
 
+// <!-- SILVIA -->
+app.use('/edit_product', editProductRoute);
+app.use('/api/edit-product', editProductApiRoute);
 
 
 

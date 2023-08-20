@@ -7,7 +7,6 @@ function getProductsFromDB() {
     });
 }
 
-
 // Get products sorted by price
 const getProductsByPrice = function() {
   return db.query(`
@@ -29,8 +28,41 @@ const addNewProduct = function({ user_id, title, price, description, image_url, 
     .then(data => {
       return data.rows[0];
     });
-
 };
 
+// edit product to database query <!-- SILVIA -->
 
-module.exports = { getProductsFromDB, getProductsByPrice, addNewProduct };
+const editProduct = function({ user_id, title, price, description, image_url, available }) {
+  return db.query(
+    `
+    UPDATE products
+    SET
+    title = $2,
+    price = $3,
+    description = $4,
+    image_url = $5,
+    available = $6
+    WHERE user_id = $1
+    RETURNING *;
+    `,
+    [user_id, title, price, description, image_url, available]
+  )
+    .then(data => {
+      return data.rows[0];
+    });
+};
+
+const deleteProduct = function(user_id, productId) {
+  const queryParams = [productId, user_id];
+  let queryString = `
+  DELETE FROM products
+  WHERE products.id = $1 AND products.user_id = $2
+  RETURNING *;
+  `;
+  return db.query(queryString, queryParams)
+  .then((res) => res.rows[0]);
+}
+
+
+module.exports = { getProductsFromDB, getProductsByPrice, addNewProduct, editProduct, deleteProduct };
+

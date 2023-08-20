@@ -6,10 +6,10 @@ const db = require('../db/connection');
 
 
 // bcrypt.genSalt(10, function(err, salt) {
-//   bcrypt.hash('000', salt, function(err, hash) {
+//   bcrypt.hash('Silvia', salt, function(err, hash) {
 //       console.log(hash)
 //   });
-// }); //to generate hashed password for any password like 111
+// }); //to generate hashed password for any password like 111 or any word
 
 router.post("/", (req, res) => { //products
   let email = req.body.email;
@@ -50,7 +50,6 @@ router.post("/", (req, res) => { //products
     });
 });
 
-//Login Form
 
 
 
