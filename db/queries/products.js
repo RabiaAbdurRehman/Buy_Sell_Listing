@@ -1,6 +1,7 @@
 const db = require('../connection');
 
 function getProductsFromDB() {
+  //console.log("getProductsFromDB")
   return db.query('SELECT * FROM products LIMIT 100;')
     .then(data => {
       return data.rows;
@@ -8,14 +9,17 @@ function getProductsFromDB() {
 }
 
 // Get products sorted by price
-const getProductsByPrice = function() {
+const getProductsByPrice = function(txt) {
+  console.log("price query:",txt);
   return db.query(`
-    SELECT * FROM products
-    ORDER BY price;
-  `)
-    .then(data => {
-      return data.rows;
-    });
+  SELECT * FROM products
+  WHERE price >= 100 AND price <= $1
+  ORDER BY price;
+`, [`${txt}`])
+//[`${currentUserId}`]
+  .then(data => {
+    return data.rows;
+  });
 };
 
 // Add new product to database
