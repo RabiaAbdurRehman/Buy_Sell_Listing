@@ -5,11 +5,11 @@ const db = require('../db/connection');
 
 
 
-bcrypt.genSalt(10, function(err, salt) {
-  bcrypt.hash('111', salt, function(err, hash) {
-      console.log(hash)
-  });
-}); //to generate hashed password for any password like 111 or any word
+// bcrypt.genSalt(10, function(err, salt) {
+//   bcrypt.hash('Silvia', salt, function(err, hash) {
+//       console.log(hash)
+//   });
+// }); //to generate hashed password for any password like 111 or any word
 
 router.post("/", (req, res) => { //products
   let email = req.body.email;
@@ -20,13 +20,11 @@ router.post("/", (req, res) => { //products
       FROM users
       WHERE email = $1
     `, [email])
-
     .then(response => {
       console.log(response.rows);
-
       if (response.rows[0]) {
         console.log("user is found");
-        const user = response.rows[0];
+        const user = response.rows[0]
 
         if (bcrypt.compareSync(password, user.password)) {
 
@@ -36,12 +34,11 @@ router.post("/", (req, res) => { //products
             name: user.name,
             id: user.id,
             isAdmin: user.admin
-          };
-          return res.redirect("/");
+          }
 
+          return res.redirect("/");
         } else {
           return res.redirect("/");
-
         }
       } else {
         return res.redirect("/");
@@ -52,6 +49,17 @@ router.post("/", (req, res) => { //products
       return router;
     });
 });
+
+
+
+
+
+
+
+module.exports = router;
+
+
+
 
 
 module.exports = router;

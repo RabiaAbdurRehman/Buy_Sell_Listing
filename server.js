@@ -13,7 +13,6 @@ const sassMiddleware = require('./lib/sass-middleware');
 const bodyParser = require("body-parser");
 const productsQueries = require('./db/queries/products');
 
-
 const app = express();
 
 //MIDDLEWARE
@@ -109,11 +108,9 @@ app.use('/api/edit-product', editProductApiRoute);
 
 // Home page
 // avoid creating more routes in this file
-
 app.get('/', (req, res) => {
   //access database query all products
   productsQueries.getProductsFromDB()
-
   .then(products => {
     const templateVars = {products: products, user: '' };
      res.render('index', templateVars);
@@ -132,6 +129,5 @@ app.get('/', (req, res) => {
 app.listen(PORT, () => {
   console.log(`Example app listening on port ${PORT}`);
 });
-
 
 

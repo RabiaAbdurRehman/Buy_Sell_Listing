@@ -1,4 +1,5 @@
 const db = require('../connection');
+
 //add to favourites
 const addProductToFavourites = function(userId, productId) {
   return db.query(`
@@ -27,7 +28,7 @@ const getFavouritesByUserId = function(userId) {
     });
 };
 
-// Remove product from favourite (UNLIKE!)
+// Remove product from favourite (UNLIKE)
 const removeProductFromFavourites = function(userId, productId) {
   return db.query(`
     DELETE FROM favourites
@@ -38,9 +39,9 @@ const removeProductFromFavourites = function(userId, productId) {
 
 
 
-module.exports = {addProductToFavourites, getFavouritesByUserId};
+module.exports = {addProductToFavourites, getFavouritesByUserId, removeProductFromFavourites};
 
 
 
 
-  
+

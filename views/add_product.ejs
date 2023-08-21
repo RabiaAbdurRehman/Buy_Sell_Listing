@@ -53,7 +53,7 @@
           <label>Description</label><br>
           <input type="text" name="description"><br>
 
-          <label>Picture URL</label><br>
+          <label>Picture</label><br>
           <input type="url" name="picture"><br>
 
         </fieldset>
@@ -62,6 +62,17 @@
         <button type="submit">
           Add
         </button>
+
+        <% if (successMessage) { %>
+          <div class="alert alert-success" role="alert">
+            <%= successMessage %>
+          </div>
+        <% } else if (errorMessage) { %>
+          <div class="alert alert-danger" role="alert">
+            <%= errorMessage %>
+          </div>
+        <% } %>
+
       </form>
       <tbody>
 

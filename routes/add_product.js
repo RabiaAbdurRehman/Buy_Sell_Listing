@@ -9,7 +9,7 @@ router.get('/', (req, res) => {
   const user = req.session.user;
 
   if (user && user.isAdmin) {
-    return res.render("add_product", { user });
+    return res.render("add_product", { user, successMessage: null, errorMessage: null });
   }
   res.redirect('/');
   return;
