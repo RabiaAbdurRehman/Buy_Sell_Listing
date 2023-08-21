@@ -7,6 +7,7 @@
   <meta charset="UTF-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <script src="https://kit.fontawesome.com/15a1349dfc.js" crossorigin="anonymous"></script>
 
   <link rel="stylesheet" href="/vendor/normalize-4.1.1.css" />
   <link rel="stylesheet" href="/vendor/border-box.css" />
@@ -16,6 +17,7 @@
   <script src="/vendor/jquery-3.0.0.js"></script>
   <script defer src="/scripts/app.js"></script>
   <script src="/scripts/products.js"></script>
+  <script src="/scripts/favourites.js"></script>
 </head>
 
 <%- include('partials/_header') %>
@@ -26,6 +28,7 @@
       <form class="search-wrapper" id="slide" action="/api/index/filter" method="get">
         <label for="search">Search Items</label>
         <input type="number" id="search" data-search>
+
         <button type="submit">submit</button>
       </form>
     </section>
@@ -35,7 +38,8 @@
           <div class="item">
             <img class="image" src="<%= product.image_url %>" alt="Product Image" %>
             <a><%= product.title %></a>
-            <a><%= product.price %></a>
+            <a>$<%= product.price %></a>
+            <i class="fa-regular fa-heart likedIcone heartImage" data-productid="<%= product.id %>"></i> 
           </div>
         <% } %>
       </div>
