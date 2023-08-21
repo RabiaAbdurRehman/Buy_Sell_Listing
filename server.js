@@ -108,11 +108,9 @@ app.use('/api/edit-product', editProductApiRoute);
 
 // Home page
 // avoid creating more routes in this file
-
 app.get('/', (req, res) => {
   //access database query all products
   productsQueries.getProductsFromDB()
-
   .then(products => {
     const templateVars = {products: products, user: '' };
      res.render('index', templateVars);
@@ -127,5 +125,9 @@ app.get('/', (req, res) => {
 // app.get('/', (req, res) => {
 //   res.redirect('/products');
 // });
+
+app.listen(PORT, () => {
+  console.log(`Example app listening on port ${PORT}`);
+});
 
 
