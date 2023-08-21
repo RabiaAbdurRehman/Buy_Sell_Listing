@@ -3,10 +3,12 @@ $(() => {
   $("#fetch-products").on("click", () => {
     $.ajax({
       method: "GET",
-      url: '/api/products',
+      //url: '/api/products',
+      url: '/api/index',
     }).then((response) => {
       console.log("We are here,", response.products);
-      const $productsList = $("#products");
+      //const $productsList = $("#products");
+      const $productsList = $("#index");
       $productsList.empty();
 
       for (const product of response.products) {
@@ -35,7 +37,8 @@ $(() => {
       console.log('Search query:', txt);
       $.ajax({
         method: "GET",
-        url: '/api/products/filter',
+        //url: '/api/products/filter', RENAMED TO INDEX (RABIA'S)
+        url: '/api/index/filter',
         data: {
           txt: txt
         }
