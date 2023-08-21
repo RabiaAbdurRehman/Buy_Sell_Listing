@@ -21,10 +21,6 @@ $(() => {
       </div>
            `);
         $productsList.append(productElement);
-
-        // $(`<li class="product">`).text(product.title).appendTo($productsList);
-        // $(`<li class="product">`).text(product.price).appendTo($productsList);
-        // $(`<li class="product">`).html(`<img src="${product.image_url}" alt="${product.title}">`).appendTo($productsList);
       }
     });
   });

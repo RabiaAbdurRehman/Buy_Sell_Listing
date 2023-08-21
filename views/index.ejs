@@ -17,6 +17,7 @@
   <script src="/vendor/jquery-3.0.0.js"></script>
   <script defer src="/scripts/app.js"></script>
   <script src="/scripts/products.js"></script>
+  <script src="/scripts/favourites.js"></script>
 </head>
 
 <%- include('partials/_header') %>
@@ -38,7 +39,7 @@
             <img class="image" src="<%= product.image_url %>" alt="Product Image" %>
             <a><%= product.title %></a>
             <a>$<%= product.price %></a>
-            <i id="heartImage" class="fa-regular fa-heart"></i>
+            <i class="fa-regular fa-heart likedIcone heartImage" data-productid="<%= product.id %>"></i> 
           </div>
         <% } %>
       </div>
