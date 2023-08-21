@@ -4,9 +4,11 @@ const router = express.Router();
 const favouriteQueries = require('../db/queries/favourites');
 
 router.get('/', (req, res) => {
-  favouriteQueries.getFavouritesByUserId(req.query.userId)
+  if (!req.session.user) return res.redirect('/products')
+
+  favouriteQueries.getFavouritesByUserId(req.session.user.id)
     .then(data => {
-      res.render('favourites', { products: data });
+      res.render('favourites', { products: data, user: req.session.user });
     })
 
   .catch (err => {
@@ -14,5 +16,8 @@ router.get('/', (req, res) => {
   });
 
 });
+
+
+
 
 module.exports = router;

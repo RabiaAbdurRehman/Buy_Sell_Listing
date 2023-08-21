@@ -8,6 +8,31 @@
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
+   <!-- Bootstrap CSS -->
+   <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/css/bootstrap.min.css"
+   integrity="sha384-GJzZqFGwb1QTTN6wy59ffF1BuGJpLSa9DkKMp0DgiMDm4iYMj70gZWKYbI706tWS" crossorigin="anonymous">
+ <link rel="stylesheet" href="/styles/layout.css" type="text/css" />
+ <link rel="preconnect" href="https://fonts.googleapis.com">
+ <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+ <link href="https://fonts.googleapis.com/css2?family=Source+Sans+Pro:ital,wght@1,300&display=swap" rel="stylesheet">
+ <link rel="stylesheet" href="/vendor/normalize-4.1.1.css" />
+ <link rel="stylesheet" href="/vendor/border-box.css" />
+ <link rel="stylesheet" href="/styles/main.css" />
+ <link rel="stylesheet" href="/styles/layout.css" />
+
+<!-- Bulma CSS-->
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bulma@0.9.4/css/bulma-rtl.min.css">
+ <script src="/vendor/jquery-3.0.0.js"></script>
+ <script defer src="/scripts/products.js"></script>
+ <script defer src="/scripts/favourites.js"></script>
+
+  <!-- Font awesome -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.1/css/all.min.css"
+  integrity="sha512-MV7K8+y+gLIBoVD59lQIYicR65iaqukzvf/nwasF0nqhPay5w/9lJmVM2hMDcnK1OnMGCdVK+iQrJ7lzPJQd1w=="
+  crossorigin="anonymous" referrerpolicy="no-referrer" />
+<script src="https://cdnjs.cloudflare.com/ajax/libs/timeago.js/4.0.2/timeago.min.js"
+  integrity="sha512-SVDh1zH5N9ChofSlNAK43lcNS7lWze6DTVx1JCXH1Tmno+0/1jMpdbR8YDgDUfcUrPp1xyE53G42GFrcM0CMVg=="
+  crossorigin="anonymous" referrerpolicy="no-referrer"></script>
   <link rel="stylesheet" href="/vendor/normalize-4.1.1.css" />
   <link rel="stylesheet" href="/vendor/border-box.css" />
   <link rel="stylesheet" href="/styles/main.css" />
@@ -23,47 +48,47 @@
 
 <body>
   <%- include('partials/_header') %>
-  <main style="margin: 1em;">
-    <h3>Your Favourites</h3>
+    <main style="margin: 1em;">
+      <h3>Your Wishlist</h3>
 
-    <table class="table">
-      <thead>
-        <tr>
-          <th scope="col">Photo</th>
-          <th scope="col">Product</th>
-          <th scope="col">Delete from Favourites</th>
-        </tr>
-      </thead>
-
-
-      <tbody>
-
-
-        <% for(let product of products) { %>
+      <!-- display it in the same way as its shown on the main page, like cards -->
+      <table class="table">
+        <thead>
           <tr>
-            <td> <img width="120" height="120" src="<%= product.image_url %>"> </td>
-            <td>
-              <%= product.title %>
-            </td>
-
-            <td>
-              <form method="POST" action="/favourites/delete">
-                <button type="submit" class="btn btn-outline-danger" name="deleteButton">
-                  Delete from list
-                </button>
-              </form>
-            </td>
+            <th scope="col">Photo</th>
+            <th scope="col">Product</th>
+            <th scope="col">Price</th>
           </tr>
-          <% } %>
+        </thead>
 
 
-      </tbody>
+        <tbody>
+          <% for(let product of products) { %>
+            <tr>
+              <section class="product">
+
+                <td> <img width="120" height="120" src="<%= product.image_url %>"> </td>
+
+                <td>
+                  <h2 class="product_title"> </h2>
+                  <%= product.title %>
+                </td>
+                <td>
+                  <h3 class="product_price">$<%= product.price/100.0 %>
+                  </h3>
+                </td>
+
+            </tr>
+            <% } %>
+
+              </section>
+        </tbody>
 
 
-    </table>
+      </table>
 
 
-  </main>
+    </main>
 </body>
 
 </html>

@@ -11,25 +11,49 @@
           <a class="nav-item nav-link" href="/urls/new">Create New URL</a>
         </div> -->
 
-        <!-- <div class="ml-auto" style="display: flex;">
-          <div>
-            <a class="nav-link" href="/favourites?userId=1">My Favourites</a> <!--add query param (?userId=1) for show what user info must be shown for GET request-->
-          <!-- </div>
-        </div>
-      </div>
-    </nav>
-  </header>  -->
-  <link rel="stylesheet" href="/styles/main.css" />
-  <link rel="stylesheet" href="/styles/layout.css" />
-  <header>
-    <nav class="navbar navbar-expand-md navbar-dark bg-success" id="navbar">
-      <span class="logo">
-        <h1> Petals & Bees Shop </h1>
-      </span>
-      <div class="menu">
-        <a href="/favourites">Favourites</a>
-        <a href="/products">All products</a>
-        <a href="#">Messages</a>
-      </div>
-    </nav>
-  </header>
+<div class="ml-auto" style="display: flex;">
+  <div>
+    <a class="nav-link" href="/favourites?userId=1">My Favourites</a>
+    <!--add query param (?userId=1) for show what user info must be shown for GET request-->
+  </div>
+</div>
+<ul>
+  <% if (user && user.isAdmin) { %>
+    <li><a href="/all_products">All Products</a></li>
+    <li><a href="/add_product">Add New Product</a></li>
+    <% } %>
+
+      <% if (user) { %>
+        <li><a href="/favourites">My Favourites</a></li>
+        <li>
+          <form id="logout-form" class="login-form" method="POST" action="/logout">
+            <label>Welcome back, <%= user.name %>!</label>
+            <button type="submit" class="btn btn-secondary">Logout</button>
+          </form>
+        </li>
+        <% } else { %>
+          <li>
+            <form id="login-form" class="login-form">
+              <a href="/login">Login</a>
+            </form>
+          </li>
+          <% } %>
+</ul>
+
+</div>
+</nav>
+</header>
+<link rel="stylesheet" href="/styles/main.css" />
+<link rel="stylesheet" href="/styles/layout.css" />
+<header>
+  <nav class="navbar navbar-expand-md navbar-dark bg-success" id="navbar">
+    <span class="logo">
+      <h1> Petals & Bees Shop </h1>
+    </span>
+    <div class="menu">
+      <a href="/favourites">Favourites</a>
+      <a href="/products">All products</a>
+      <a href="#">Messages</a>
+    </div>
+  </nav>
+</header>

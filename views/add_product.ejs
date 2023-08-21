@@ -2,7 +2,7 @@
 <html lang="en">
 
 <head>
-  <title>Users</title>
+  <title>AddNewProduct</title>
 
   <meta charset="UTF-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -33,49 +33,38 @@
   <script src="https://cdnjs.cloudflare.com/ajax/libs/timeago.js/4.0.2/timeago.min.js"
     integrity="sha512-SVDh1zH5N9ChofSlNAK43lcNS7lWze6DTVx1JCXH1Tmno+0/1jMpdbR8YDgDUfcUrPp1xyE53G42GFrcM0CMVg=="
     crossorigin="anonymous" referrerpolicy="no-referrer"></script>
-
-  <link rel="stylesheet" href="/vendor/normalize-4.1.1.css" />
-  <link rel="stylesheet" href="/vendor/border-box.css" />
-  <link rel="stylesheet" href="/styles/main.css" />
-  <link rel="stylesheet" href="/styles/layout.css" />
-
-  <script src="/vendor/jquery-3.0.0.js"></script>
-  <script defer src="/scripts/products.js"></script>
-  <script defer src="/scripts/favourites.js"></script>
 </head>
 
 <body>
+
   <%- include('partials/_header') %>
+    <main style="margin: 1em;">
 
-    <h1>Hello honeybee! Have a look at our flowers!</h1>
+      <form method="post" action="/api/add-product">
+        <fieldset>
+          <legend>Add New Product</legend>
 
+          <label>Name</label><br>
+          <input type="text" name="title"><br>
 
-    <button id="fetch-products">Fetch Products</button>
-    <ul id="products"></ul>
-<!--
-    <tbody>
-      <% for(let product of products) { %>
-        <tr>
-          <section id="product">
+          <label>Price</label><br>
+          <input type="number" name="price"><br>
 
-            <td> <img width="120" height="120" src="<%= product.image_url %>"> </td>
+          <label>Description</label><br>
+          <input type="text" name="description"><br>
 
-            <td>
-              <h2 class="product_title"> </h2>
-              <%= product.title %>
-            </td>
-            <td>
-              <h2 class="product_description"> </h2>
-              <%= product.description %>
-            </td>
-            <td>
-              <h3 class="product_price">$<%= product.price/100.0 %>
-              </h3>
-              <button class="btn btn-primary like-button">Like me!</button>
-            </td>
+          <label>Picture URL</label><br>
+          <input type="url" name="picture"><br>
 
-            <% } %>
-    </tbody> -->
+        </fieldset>
+
+        <br>
+        <button type="submit">
+          Add
+        </button>
+      </form>
+      <tbody>
+
 
 </body>
 

@@ -14,10 +14,12 @@ const getUserProducts = function(userId) {
     SELECT * FROM products
     WHERE user_id = $1;
   `, [userId])
-  .then(data => {
-    return data.rows;
-  });
+    .then(data => {
+      return data.rows;
+    });
 };
 
 
-module.exports = { getUsers, getUserProducts };
+
+
+module.exports = { getUsers, getUserProducts};
