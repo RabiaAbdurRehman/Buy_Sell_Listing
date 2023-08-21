@@ -15,11 +15,13 @@ function getProductsFromDB() {
 
 
 // Get products sorted by price
-const getProductsByPrice = function() {
+const getProductsByPrice = function(txt) {
   return db.query(`
-    SELECT * FROM products
-    ORDER BY price;
-  `)
+  SELECT * FROM products
+  WHERE price >= 100 AND price <= 600
+  AND title ILIKE $3
+  ORDER BY price;
+`, [`%${txt}%`])
   .then(data => {
     return data.rows;
   });

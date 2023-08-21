@@ -1,4 +1,4 @@
-<header>
+<!-- <header>
     <nav class="navbar navbar-expand-md navbar-dark bg-success">
       <a class="navbar-brand" href="/products">Petals & Bees Shop</a>
       <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavAltMarkup"
@@ -6,16 +6,30 @@
         <span class="navbar-toggler-icon"></span>
       </button>
       <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
-        <!-- <div class="navbar-nav">
+        <!- <div class="navbar-nav">
           <a class="nav-item nav-link" href="/urls">My URLs</a>
           <a class="nav-item nav-link" href="/urls/new">Create New URL</a>
         </div> -->
 
-        <div class="ml-auto" style="display: flex;">
+        <!-- <div class="ml-auto" style="display: flex;">
           <div>
             <a class="nav-link" href="/favourites?userId=1">My Favourites</a> <!--add query param (?userId=1) for show what user info must be shown for GET request-->
-          </div>
+          <!-- </div>
         </div>
+      </div>
+    </nav>
+  </header>  -->
+  <link rel="stylesheet" href="/styles/main.css" />
+  <link rel="stylesheet" href="/styles/layout.css" />
+  <header>
+    <nav class="navbar navbar-expand-md navbar-dark bg-success" id="navbar">
+      <span class="logo">
+        <h1> Petals & Bees Shop </h1>
+      </span>
+      <div class="menu">
+        <a href="/favourites">Favourites</a>
+        <a href="/products">All products</a>
+        <a href="#">Messages</a>
       </div>
     </nav>
   </header>

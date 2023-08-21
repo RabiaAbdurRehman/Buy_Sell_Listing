@@ -18,7 +18,7 @@ const favouritesProduct = require('./routes/favourites');
 const favouriteApiRoutes = require('./routes/favourites-api');
 
 const loginRoute = require('./routes/login');
-
+const productsQueries = require('./db/queries/products');
 const PORT = process.env.PORT || 8080;
 const app = express();
 app.set('view engine', 'ejs');
@@ -45,7 +45,19 @@ app.use("/login", loginRoute);
 // Warning: avoid creating more routes in this file!
 // Separate them into separate routes files (see above).
 app.get('/', (req, res) => {
-  res.redirect('/products');
+  //access database query all products
+  productsQueries.getProductsFromDB()
+
+  .then(products => {
+    const templateVars = {products: products, user: '' };
+     res.render('index', templateVars);
+  })
+  .catch(err => {
+     res
+       .status(500)
+       .json({error: err.message});
+  });
+  //res.render('index');
 });
 
 app.listen(PORT, () => {
