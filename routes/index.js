@@ -7,7 +7,8 @@ router.get('/', (req, res) => {
     productsQueries.getProductsFromDB()
     .then(products => {
       const templateVars = {products, user: req.session.user };
-       res.render('products', templateVars);
+       //res.render('products', templateVars);
+       res.render('index', templateVars);
     })
     .catch(err => {
        res
@@ -18,3 +19,5 @@ router.get('/', (req, res) => {
 
 
 module.exports = router;
+
+//i think this now has to be changed to index

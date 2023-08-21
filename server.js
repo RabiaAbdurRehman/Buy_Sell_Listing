@@ -60,8 +60,10 @@ const favouritesProduct = require('./routes/favourites');
 const favouriteApiRoutes = require('./routes/favourites-api');
 
 //Products
-const productsRoutes = require('./routes/products');
-const productsApiRoutes = require('./routes/products-api');
+// const productsRoutes = require('./routes/products');
+// const productsApiRoutes = require('./routes/products-api');
+const indexRoutes = require('./routes/index');
+const indexApiRoutes = require('./routes/index-api');
 
 const addProductRoute = require('./routes/add_product');
 const addProductApiRoute = require('./routes/add_product-api');
@@ -88,8 +90,10 @@ app.use('/favourites', favouritesProduct);
 app.use('/api/favourites', favouriteApiRoutes);
 
 // Products
-app.use('/products', productsRoutes);
-app.use('/api/products', productsApiRoutes);
+app.use('/index', indexRoutes);
+app.use('/api/index', indexApiRoutes);
+// app.use('/products', productsRoutes);
+// app.use('/api/products', productsApiRoutes);
 
 app.use('/add_product', addProductRoute);
 app.use('/api/add-product', addProductApiRoute);
@@ -108,8 +112,10 @@ app.use('/api/edit-product', editProductApiRoute);
 
 // Home page
 // avoid creating more routes in this file
+
 app.get('/', (req, res) => {
   //access database query all products
+
   productsQueries.getProductsFromDB()
   .then(products => {
     const templateVars = {products: products, user: '' };

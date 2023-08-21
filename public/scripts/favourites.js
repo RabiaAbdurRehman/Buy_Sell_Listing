@@ -1,5 +1,5 @@
 $(() => {
-  $('#products').on('click', 'li', (event) => {
+  $('#index').on('click', 'li', (event) => {
     let productId = event.currentTarget.dataset.productid;
     $.ajax({
       method: 'POST',
