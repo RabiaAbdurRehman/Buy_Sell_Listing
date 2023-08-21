@@ -1,6 +1,16 @@
 // See: https://sass-lang.com/
-
+$nav-background-color: pink;
+$nav-color: #ffffff;
+$nav-height: 120px;
 body,
 html {
   margin: 0;
+  #navbar{
+    display: flex;
+    width: 100%;
+    background-color:$nav-background-color ;
+    align-items: center;
+
+  }
+  
 }
