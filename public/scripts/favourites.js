@@ -1,7 +1,7 @@
 $(() => {
   $('#searchResults').on('click', '.likedIcone', (event) => {
     let productId = event.currentTarget.dataset.productid;  //<i data-productid="1" data-title="Test"></i>
-                                                            //element.dataset.title 
+                                                            //element.dataset.title
     console.log("Favourite.js", productId);
     $.ajax({
       method: 'POST',
@@ -23,6 +23,8 @@ $(() => {
         // }
       });
   });
-
+// $(".heartImage").on("click", () => {
+//   $(".heartImage").toggleClass("clicked");
+// })
 
 });
