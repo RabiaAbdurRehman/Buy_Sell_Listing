@@ -52,6 +52,8 @@ const editProduct = function({ user_id, title, price, description, image_url, av
     });
 };
 
+  // SILVIA DELETE FUNCTIONALITY BRANCH
+
 const deleteProduct = function(user_id, productId) {
   const queryParams = [productId, user_id];
   let queryString = `

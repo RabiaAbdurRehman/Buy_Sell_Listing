@@ -71,30 +71,38 @@
                   <h3 class="product_price">$<%= product.price/100.0 %>
                   </h3>
                 </td>
-
+               <!--SILVIA DELETE FUNCIONALITY BRANCH-->
                 <td>
-                  <form method="POST" action="/products/delete">
+                  <form method="POST" action="/api/delete-product">
                     <button type="submit" class="btn btn-outline-danger" name="deleteButton">
                       Delete
                     </button>
                   </form>
                 </td>
 
-                <td>
-                  <form method="POST" action="/products/edit">
+
+                 <td>
+                    <a href="/edit_product">
+                    <button type="button" class="btn btn-outline-danger" name="editButton">
+                      Edit
+                    </button>
+                </td>
+
+                <!-- <td>
+                  <form method="POST" action="/edit_product">
                     <button type="submit" class="btn btn-outline-danger" name="editButton">
                       Edit
                     </button>
                   </form>
-                </td>
+                </td> -->
 
-                <td>
+                <!-- <td>
                   <form method="POST" action="/products/save">
                     <button type="submit" class="btn-outline-danger" name="saveButton">
                       Save
                     </button>
                   </form>
-                </td>
+                </td> -->
             </tr>
             <% } %>
         </tbody>
