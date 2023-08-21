@@ -31,15 +31,18 @@ $(() => {
 
     $("#slide").on( "submit", function(event) {
       event.preventDefault();
-      let txt = $("#search").val();
+    const txt = $("#search").val();
+      console.log('Search query:', txt);
       $.ajax({
         method: "GET",
-        url: '/api/products',
-        data: txt
+        url: '/api/products/filter',
+        data: {
+          txt: txt
+        }
       })
       .then((response) => {
-        console.log("DId I search something", response);
-        const $productsList = $("#products");
+        console.log("eventhandler", response);
+        const $productsList = $("#searchResults");
         $productsList.empty();
 
 

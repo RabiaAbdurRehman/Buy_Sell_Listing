@@ -11,6 +11,8 @@ const morgan = require('morgan');
 const session = require('express-session');
 const sassMiddleware = require('./lib/sass-middleware');
 const bodyParser = require("body-parser");
+const productsQueries = require('./db/queries/products');
+
 
 const app = express();
 
@@ -123,6 +125,9 @@ app.get('/', (req, res) => {
   });
   //res.render('index');
 });
+// app.get('/', (req, res) => {
+//   res.redirect('/products');
+// });
 
 app.listen(PORT, () => {
   console.log(`Example app listening on port ${PORT}`);
