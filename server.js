@@ -11,8 +11,6 @@ const morgan = require('morgan');
 const session = require('express-session');
 const sassMiddleware = require('./lib/sass-middleware');
 const bodyParser = require("body-parser");
-const productsQueries = require('./db/queries/products');
-
 
 const app = express();
 
@@ -111,27 +109,11 @@ app.use('/api/edit-product', editProductApiRoute);
 // avoid creating more routes in this file
 
 app.get('/', (req, res) => {
-  //access database query all products
-  productsQueries.getProductsFromDB()
-
-  .then(products => {
-    const templateVars = {products: products, user: '' };
-     res.render('index', templateVars);
-  })
-  .catch(err => {
-     res
-       .status(500)
-       .json({error: err.message});
-  });
-  //res.render('index');
+  res.redirect('/products');
 });
-// app.get('/', (req, res) => {
-//   res.redirect('/products');
-// });
 
 app.listen(PORT, () => {
   console.log(`Example app listening on port ${PORT}`);
 });
-
 
 

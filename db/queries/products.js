@@ -34,7 +34,7 @@ const addNewProduct = function({ user_id, title, price, description, image_url, 
     });
 };
 
-// edit product to database query <!-- SILVIA -->
+// edit product to database <!-- SILVIA -->
 
 const editProduct = function({ user_id, title, price, description, image_url, available }) {
   return db.query(
