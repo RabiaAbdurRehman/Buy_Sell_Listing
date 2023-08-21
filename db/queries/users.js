@@ -7,4 +7,17 @@ const getUsers = () => {
     });
 };
 
-module.exports = { getUsers };
+
+// Get user's products
+const getUserProducts = function(userId) {
+  return db.query(`
+    SELECT * FROM products
+    WHERE user_id = $1;
+  `, [userId])
+  .then(data => {
+    return data.rows;
+  });
+};
+
+
+module.exports = { getUsers, getUserProducts };

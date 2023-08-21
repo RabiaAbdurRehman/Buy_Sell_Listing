@@ -5,8 +5,8 @@ CREATE TABLE products  (
   user_id INTEGER REFERENCES users(id),
   title VARCHAR(255) NOT NULL,
   price INTEGER NOT NULL,
-  description TEXT NOT NULL,
-  image_url VARCHAR(255) NOT NULL,
+  description TEXT,
+  image_url VARCHAR(255),
   available BOOLEAN,
   created_at TIMESTAMP DEFAULT statement_timestamp()
 );

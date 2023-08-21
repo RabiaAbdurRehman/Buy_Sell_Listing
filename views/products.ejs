@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <title>Users</title>
+
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <link rel="stylesheet" href="/vendor/normalize-4.1.1.css" />
+  <link rel="stylesheet" href="/vendor/border-box.css" />
+  <link rel="stylesheet" href="/styles/main.css" />
+  <link rel="stylesheet" href="/styles/layout.css" />
+
+  <script src="/vendor/jquery-3.0.0.js"></script>
+  <script defer src="/scripts/products.js"></script>
+  <script defer src="/scripts/favourites.js"></script>
+</head>
+
+<body>
+  <%- include('partials/_header') %>
+
+  <!-- <nav>
+    <span class="logo">
+      <h1> Buy/Sell </h1>
+    </span>
+    <div class="menu">
+      <a href="#">Wishlists</a>
+      <a href="#">Create listings</a>
+      <a href="#">My listings</a>
+
+      <button class="for-sliding" id="slide" type="submit"><a href="#">Search</a><i
+          class="fa-solid fa-angles-down fa-2xs"></i></button>
+    </div>
+    <div>
+      <p>Login/p>
+      <button class="for-sliding" id="slide" type="submit"><i class="fa-solid fa-angles-down fa-2xs"></i></button>
+    </div>
+    <div>
+      <p>sign up/p>
+      <button class="for-sliding" id="slide" type="submit"><i class="fa-solid fa-angles-down fa-2xs"></i></button>
+    </div>
+  </nav> -->
+  <h1>Products</h1>
+  <button id="fetch-products">Fetch Products via AJAX</button>
+  <ul id="products"></ul>
+</body>
+
+</html>
