@@ -20,11 +20,13 @@ router.post("/", (req, res) => { //products
       FROM users
       WHERE email = $1
     `, [email])
+
     .then(response => {
       console.log(response.rows);
+
       if (response.rows[0]) {
         console.log("user is found");
-        const user = response.rows[0]
+        const user = response.rows[0];
 
         if (bcrypt.compareSync(password, user.password)) {
 
@@ -34,11 +36,12 @@ router.post("/", (req, res) => { //products
             name: user.name,
             id: user.id,
             isAdmin: user.admin
-          }
-
+          };
           return res.redirect("/");
+
         } else {
           return res.redirect("/");
+
         }
       } else {
         return res.redirect("/");
@@ -49,11 +52,6 @@ router.post("/", (req, res) => { //products
       return router;
     });
 });
-
-
-
-
-
 
 
 module.exports = router;
