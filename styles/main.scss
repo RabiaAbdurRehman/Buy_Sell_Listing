@@ -16,6 +16,7 @@ body {
     rgba(163, 208, 219, 1) 74%,
     rgba(163, 208, 219, 1) 100%
   );
+  // home page
   .search-results{
     display: flex;
     width: 40%;
@@ -23,6 +24,9 @@ body {
   .image{
     display: flex;
     width: 40%;
+  }
+  #heartImage:hover{
+    box-shadow: 5px 5px 5px black;
   }
 }
 
