@@ -10,6 +10,7 @@ $(() => {
     })
       .done((response) => {
         console.log(response);
+        $(`#heart-product-${productId}`).toggleClass("clicked");
 
         //we can check lines after when we have login.
         // const $favouriteList = $('#favourite');
