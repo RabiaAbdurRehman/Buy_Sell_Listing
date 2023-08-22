@@ -72,8 +72,34 @@
                   </h3>
                 </td>
 
-                <td>
-                  <form method="POST" action="/products/delete">
+                 <!--SILVIA DELETE FUNCIONALITY BRANCH-->
+                 <td>
+                  <form method="POST" action="/api/delete-product">
+                    <button type="submit" class="btn btn-outline-danger" name="deleteButton">
+                      Delete
+                    </button>
+                  </form>
+                </td>
+
+
+                 <td>
+                    <a href="/edit_product">
+                    <button type="button" class="btn btn-outline-danger" name="editButton">
+                      Edit
+                    </button>
+                </td>
+
+                <!-- <td>
+                  <form method="POST" action="/edit_product">
+                    <button type="submit" class="btn btn-outline-danger" name="editButton">
+                      Edit
+                    </button>
+                  </form>
+                </td> -->
+
+                <!-- <td>
+                  <form method="POST" action="/products/delete">///
+                  <form method="POST" action="/index/delete">
                     <button type="submit" class="btn btn-outline-danger" name="deleteButton">
                       Delete
                     </button>
@@ -81,15 +107,16 @@
                 </td>
 
                 <td>
-                  <form method="POST" action="/products/edit">
+                  <form method="POST" action="/products/edit">////
+                  <form method="POST" action="/index/edit">
                     <button type="submit" class="btn btn-outline-danger" name="editButton">
                       Edit
                     </button>
                   </form>
                 </td>
 
-                <!-- <td>
-                  <form method="POST" action="/products/save">
+                 <td>
+                  <form method="POST" action="/products/save">///
                     <button type="submit" class="btn-outline-danger" name="saveButton">
                       Save
                     </button>

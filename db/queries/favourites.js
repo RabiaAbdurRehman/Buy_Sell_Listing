@@ -11,6 +11,7 @@ const addProductToFavourites = function(userId, productId) {
       return data.rows[0];
     });
 };
+
 //display favourites
 const getFavouritesByUserId = function(userId) {
   return db.query(`

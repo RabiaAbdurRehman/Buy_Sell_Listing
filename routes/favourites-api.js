@@ -6,7 +6,7 @@ const favouriteQueries = require("../db/queries/favourites");
 router.post("/", (req, res) => {
   const product_id = req.body.productId;
   console.log(req.session)
-  const user_id = req.session.user.id;
+  const user_id = req.session.user_id;
 
   favouriteQueries
     .addProductToFavourites(user_id, product_id)
@@ -15,6 +15,7 @@ router.post("/", (req, res) => {
       res.status(200).json({ message: "Product was added to Favourite!" });
     })
     .catch((err) => {
+      console.log("favourite-api error,",err.message);
       res.status(500).json({ error: err.message });
     });
 });

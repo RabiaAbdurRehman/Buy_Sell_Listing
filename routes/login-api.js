@@ -36,12 +36,12 @@ router.post("/", (req, res) => { //products
             isAdmin: user.admin
           }
 
-          return res.redirect("/");
+          return res.redirect("/index");
         } else {
-          return res.redirect("/");
+          return res.redirect("/index");
         }
       } else {
-        return res.redirect("/");
+        return res.redirect("/index");
       }
     })
     .catch(e => {
@@ -49,17 +49,6 @@ router.post("/", (req, res) => { //products
       return router;
     });
 });
-
-
-
-
-
-
-
-module.exports = router;
-
-
-
 
 
 module.exports = router;

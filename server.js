@@ -60,8 +60,10 @@ const favouritesProduct = require('./routes/favourites');
 const favouriteApiRoutes = require('./routes/favourites-api');
 
 //Products
-const productsRoutes = require('./routes/products');
-const productsApiRoutes = require('./routes/products-api');
+// const productsRoutes = require('./routes/products');
+// const productsApiRoutes = require('./routes/products-api');
+const indexRoutes = require('./routes/index');
+const indexApiRoutes = require('./routes/index-api');
 
 const addProductRoute = require('./routes/add_product');
 const addProductApiRoute = require('./routes/add_product-api');
@@ -72,6 +74,9 @@ const allProductsApiRoute = require('./routes/all_products-api');
 // <!-- SILVIA -->
 const editProductRoute = require('./routes/edit_product');
 const editProductApiRoute = require('./routes/edit_product-api');
+
+const deleteProductRoute = require('./routes/delete_product');
+const deleteProductApiRoute = require('./routes/delete_product-api');
 
 
 // Login
@@ -88,8 +93,10 @@ app.use('/favourites', favouritesProduct);
 app.use('/api/favourites', favouriteApiRoutes);
 
 // Products
-app.use('/products', productsRoutes);
-app.use('/api/products', productsApiRoutes);
+app.use('/index', indexRoutes);
+app.use('/api/index', indexApiRoutes);
+// app.use('/products', productsRoutes);
+// app.use('/api/products', productsApiRoutes);
 
 app.use('/add_product', addProductRoute);
 app.use('/api/add-product', addProductApiRoute);
@@ -101,15 +108,20 @@ app.use('/api/all-products', allProductsApiRoute);
 app.use('/edit_product', editProductRoute);
 app.use('/api/edit-product', editProductApiRoute);
 
+// // delete
 
 
+app.use('/delete_product', deleteProductRoute);
+app.use('/api/delete-product', deleteProductApiRoute);
 
 
 
 // Home page
 // avoid creating more routes in this file
+
 app.get('/', (req, res) => {
   //access database query all products
+
   productsQueries.getProductsFromDB()
   .then(products => {
     const templateVars = {products: products, user: '' };
@@ -122,9 +134,7 @@ app.get('/', (req, res) => {
   });
   //res.render('index');
 });
-// app.get('/', (req, res) => {
-//   res.redirect('/products');
-// });
+
 
 app.listen(PORT, () => {
   console.log(`Example app listening on port ${PORT}`);
