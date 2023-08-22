@@ -60,3 +60,20 @@ $(() => {
     });
 
 });
+
+
+// EVENT LISTENER DELETE ITEM
+$(() => {
+  $('#products').on('click', 'li', (event) => {
+    let productId = event.currentTarget.dataset.productid;
+    $.ajax({
+      method: 'POST',
+      data: { productId },
+      url: '/api/delete-product'
+    })
+      .done((response) => {
+        console.log(response);
+      });
+  });
+});
+
