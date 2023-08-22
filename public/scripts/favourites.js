@@ -10,21 +10,9 @@ $(() => {
     })
       .done((response) => {
         console.log(response);
+        $(`#heart-product-${productId}`).toggleClass("clicked");
 
-        //we can check lines after when we have login.
-        // const $favouriteList = $('#favourite');
-        // $favouriteList.empty();
-
-        // Update the list with the message
-  //$(`<li class="favourite">`).text(response.message).appendTo($favouriteList);
-
-        // for(const favourite of response.favourites) {
-        //   $(`<li class="favourite">`).text(favourite.product_id).appendTo($favouriteList);
-        // }
       });
   });
-// $(".heartImage").on("click", () => {
-//   $(".heartImage").toggleClass("clicked");
-// })
 
 });
