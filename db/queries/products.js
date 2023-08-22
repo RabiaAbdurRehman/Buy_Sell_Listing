@@ -37,21 +37,22 @@ const addNewProduct = function({ user_id, title, price, description, image_url, 
 
 // Edit product
 
-const editProduct = async function({ user_id, title, price, description, image_url, available }) {
+const editProduct = async function({ productId, user_id, title, price, description, image_url, available }) {
   try {
     const result = await db.query(
       `
       UPDATE products
       SET
-      title = $2,
-      price = $3,
-      description = $4,
-      image_url = $5,
-      available = $6
-      WHERE user_id = $7
+      title = $1,
+      price = $2,
+      description = $3,
+      image_url = $4,
+      available = $5
+      WHERE user_id = $6
+      AND id = $7
       RETURNING *;
       `,
-      [user_id, title, price, description, image_url, available]
+      [title, price, description, image_url, available, user_id, productId]
     );
 
     if (!result.rows[0]) {
@@ -60,15 +61,16 @@ const editProduct = async function({ user_id, title, price, description, image_u
 
     return result.rows[0];
   } catch (error) {
-    throw error; 
+    throw error;
   }
 };
 
-// Get a product by its ID
+// Get a product by its ID (await is a promise)
+
 const getProductById = async (productId) => {
   try {
-    const query = 'SELECT * FROM products WHERE id = $1';
-    const result = await db.query(query, [productId]);
+
+    const result = await db.query('SELECT * FROM products WHERE id = $1', [productId]);
 
     if (!result) {
       console.error('Query result is undefined.');
@@ -88,14 +90,12 @@ const getProductById = async (productId) => {
 };
 
 
-const deleteProduct = function(user_id, productId) {
-  const queryParams = [productId, user_id];
-  let queryString = `
+const deleteProduct = function({ user_id, productId }) {
+  return db.query(`
   DELETE FROM products
   WHERE products.id = $1 AND products.user_id = $2
   RETURNING *;
-  `;
-  return db.query(queryString, queryParams)
+  `, [productId, user_id])
     .then((res) => res.rows[0]);
 };
 

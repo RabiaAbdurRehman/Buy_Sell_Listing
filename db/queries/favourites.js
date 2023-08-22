@@ -30,7 +30,7 @@ const getFavouritesByUserId = function(userId) {
 };
 
 // Remove product from favourite (UNLIKE)
-const removeProductFromFavourites = function(userId, productId) {
+const removeProductFromFavourites = function({ userId, productId }) {
   return db.query(`
     DELETE FROM favourites
     WHERE user_id = $1
