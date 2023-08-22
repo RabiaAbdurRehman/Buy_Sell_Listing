@@ -17,29 +17,46 @@ body {
     rgba(163, 208, 219, 1) 100%
   );
   // home page
+
+
   .container{
     padding-top: 1cm;
-  }
+ }
   .search-results{
     display: flex;
     justify-content: space-between;
     // width: 40%;
     align-items: center;
+    .image{
+      display: flex;
+      width: 40%;
+    }
+    .heartImage:hover{
+      box-shadow: 5px 5px 5px black;
+    }
+    .item{
+      padding: 10px;
+      margin: 5px;
+      width: 500px;
+      display: flex;
+      flex-wrap: wrap;
+    }
+    .heartImage{
+      color: black;
+    }
+    .likedIcone.clicked {
+      color: pink; /* Change this to your desired clicked color */
+    }
+
+    // }
+    a {
+      display: flex;
+      justify-content: space-between;
+    }
+
   }
-  .image{
-    display: flex;
-    width: 40%;
-  }
-  .heartImage:hover{
-    box-shadow: 5px 5px 5px black;
-  }
-  .item{
-    padding: 10px;
-    margin: 5px;
-  }
-  .heartImage{
-    color: red;
-  }
+
 }
+
 
 

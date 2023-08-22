@@ -1,7 +1,19 @@
 // See: https://sass-lang.com/
-
+$body-color:#545149;
+$body-background-color:#f4f1ec;
+$body-font-size:24px;
+$body-font-family:'Source Sans 3', sans-serif;
+$logo-font-family:'Bungee', cursive;
 body,
 html {
-  margin: 0;
-
+  html {
+    box-sizing: border-box;
+  }
 }
+
+
+
+
+
+
+
