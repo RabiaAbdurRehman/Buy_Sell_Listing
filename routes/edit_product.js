@@ -1,8 +1,8 @@
 const express = require('express');
 const router = express.Router();
 
-//edit product ROUTE
-// <!-- SILVIA -->
+//edit product
+
 
 router.get('/', (req, res) => {
   const user = req.session.user;
