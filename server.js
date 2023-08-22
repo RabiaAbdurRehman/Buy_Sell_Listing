@@ -75,6 +75,9 @@ const allProductsApiRoute = require('./routes/all_products-api');
 const editProductRoute = require('./routes/edit_product');
 const editProductApiRoute = require('./routes/edit_product-api');
 
+const deleteProductRoute = require('./routes/delete_product');
+const deleteProductApiRoute = require('./routes/delete_product-api');
+
 
 // Login
 app.use('/login', loginRoute);
@@ -105,8 +108,11 @@ app.use('/api/all-products', allProductsApiRoute);
 app.use('/edit_product', editProductRoute);
 app.use('/api/edit-product', editProductApiRoute);
 
+// // delete
 
 
+app.use('/delete_product', deleteProductRoute);
+app.use('/api/delete-product', deleteProductApiRoute);
 
 
 
