@@ -42,20 +42,21 @@
 
 <body>
   <%- include('partials/_header') %>
-    <form method="post" action="/api/edit-product">
+    <form method="post" action="/api/products/<%=product.id%>/edit">
       <fieldset>
         <legend>Edit Product</legend>
 
         <label>Name</label><br>
-        <input type="text" name="title"><br>
+        <input type="text" name="title" value="<%=product.title%>"><br>
         <label>price</label><br>
-        <input type="number" name="price"><br>
+        <input type="number" name="price" value="<%=product.price%>"><br>
         <label>Description</label><br>
-        <input type="text" name="description"><br>
+        <input type="text" name="description" value="<%=product.description%>"><br>
         <label>Picture</label><br>
-        <input type="" name="picture"><br>
+        <img src="<%=product.image_url%>" width="150" height="150">
+        <input type="url" name="image_url" value="<%=product.image_url%>"><br>
       </fieldset>
-      <button type="submit" class="btn btn-outline-danger" name="editButton">
+      <button type="submit" class="btn btn-outline-danger">
         Update
       </button>
     </form>

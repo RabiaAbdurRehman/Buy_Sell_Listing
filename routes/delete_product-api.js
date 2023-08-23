@@ -3,16 +3,20 @@ const router = express.Router();
 
 const products = require("../db/queries/products");
 
-router.post("/", (req, res) => {
-  const body = req.body;
-  console.log(body);
+router.post("/:productId/delete", (req, res) => {
+  //console.log(req.body)
+  const redirectUrl = req.body.redirect_url || '/all_products';
+  const productId = req.params.productId;
   const user_id = req.session.user.id;
 
+  if (!req.session.user || !req.session.user.id) {
+    return res.status(401).json({ error: "User not logged in" });
+  }
+
   products
-    .deleteProduct({ ...body, user_id})
+    .deleteProduct({ productId, user_id })
     .then((response) => {
-      console.log(response.rows);
-      res.status(200).json("Product was deleted");
+      res.redirect(redirectUrl);
     })
     .catch((err) => {
       res.status(500).json({ error: err.message });
@@ -20,3 +24,4 @@ router.post("/", (req, res) => {
 });
 
 module.exports = router;
+

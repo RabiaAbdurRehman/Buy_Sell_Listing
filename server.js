@@ -27,9 +27,7 @@ app.use(
     saveUninitialized: true,
   })
 );
-
 app.use(express.urlencoded({ extended: true }));
-
 
 app.use(
   '/styles',
@@ -60,8 +58,6 @@ const favouritesProduct = require('./routes/favourites');
 const favouriteApiRoutes = require('./routes/favourites-api');
 
 //Products
-// const productsRoutes = require('./routes/products');
-// const productsApiRoutes = require('./routes/products-api');
 const indexRoutes = require('./routes/index');
 const indexApiRoutes = require('./routes/index-api');
 
@@ -71,12 +67,10 @@ const addProductApiRoute = require('./routes/add_product-api');
 const allProductsRoute = require('./routes/all_products');
 const allProductsApiRoute = require('./routes/all_products-api');
 
-// <!-- SILVIA -->
 const editProductRoute = require('./routes/edit_product');
 const editProductApiRoute = require('./routes/edit_product-api');
 
-// const deleteProductRoute = require('./routes/delete_product');
-// const deleteProductApiRoute = require('./routes/delete_product-api');
+const deleteProductApiRoute = require('./routes/delete_product-api');
 
 
 // Login
@@ -95,8 +89,6 @@ app.use('/api/favourites', favouriteApiRoutes);
 // Products
 app.use('/index', indexRoutes);
 app.use('/api/index', indexApiRoutes);
-// app.use('/products', productsRoutes);
-// app.use('/api/products', productsApiRoutes);
 
 app.use('/add_product', addProductRoute);
 app.use('/api/add-product', addProductApiRoute);
@@ -104,16 +96,10 @@ app.use('/api/add-product', addProductApiRoute);
 app.use('/all_products', allProductsRoute);
 app.use('/api/all-products', allProductsApiRoute);
 
-// <!-- SILVIA -->
-app.use('/edit_product', editProductRoute);
-app.use('/api/edit-product', editProductApiRoute);
+app.use('/products', editProductRoute);
+app.use('/api/products', editProductApiRoute);
 
-// // delete
-
-
-// app.use('/delete_product', deleteProductRoute);
-// app.use('/api/delete-product', deleteProductApiRoute);
-
+app.use('/api/products', deleteProductApiRoute);
 
 
 // Home page

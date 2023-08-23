@@ -75,10 +75,9 @@
                   </h3>
                 </td>
 
-                 <!--SILVIA DELETE FUNCIONALITY BRANCH-->
                  <td>
-                  <form method="POST" action="/api/delete-product">
-                    <button type="submit" class="btn btn-outline-danger" name="deleteButton">
+                  <form method="POST" action="/api/products/<%=product.id%>/delete" id="delete-form-<%= product.id %>">
+                    <button type="submit" class="btn btn-outline-danger" onclick="deleteProduct('<%= product.id %>')">
                       Delete
                     </button>
                   </form>
@@ -86,48 +85,23 @@
 
 
                  <td>
-                    <a href="/edit_product">
-                    <button type="button" class="btn btn-outline-danger" name="editButton">
+                    <a href="/products/<%=product.id%>/edit">
+                    <button type="button" class="btn btn-outline-danger">
                       Edit
                     </button>
                 </td>
-
-                <!-- <td>
-                  <form method="POST" action="/edit_product">
-                    <button type="submit" class="btn btn-outline-danger" name="editButton">
-                      Edit
-                    </button>
-                  </form>
-                </td> -->
-
-                <!-- <td>
-                  <form method="POST" action="/products/delete">///
-                  <form method="POST" action="/index/delete">
-                    <button type="submit" class="btn btn-outline-danger" name="deleteButton">
-                      Delete
-                    </button>
-                  </form>
-                </td>
-
-                <td>
-                  <form method="POST" action="/products/edit">////
-                  <form method="POST" action="/index/edit">
-                    <button type="submit" class="btn btn-outline-danger" name="editButton">
-                      Edit
-                    </button>
-                  </form>
-                </td>
-
-                 <td>
-                  <form method="POST" action="/products/save">///
-                    <button type="submit" class="btn-outline-danger" name="saveButton">
-                      Save
-                    </button>
-                  </form>
-                </td> -->
             </tr>
             <% } %>
         </tbody>
       </table>
     </main>
+
+    <script>
+      function deleteProduct(productId) {
+        if (confirm("Are you sure you want to delete this product?")) {
+          const form = document.getElementById(`delete-form-${productId}`);
+          form.submit();
+        }
+      }
+    </script>
 </body>
