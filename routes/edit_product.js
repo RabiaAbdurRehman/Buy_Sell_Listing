@@ -1,14 +1,16 @@
 const express = require('express');
 const router = express.Router();
+const products = require("../db/queries/products");
 
-//edit product ROUTE
-// <!-- SILVIA -->
+//edit product
 
-router.get('/', (req, res) => {
+router.get('/:productId/edit', async (req, res) => {
+  const productId = req.params.productId
   const user = req.session.user;
 
   if (user && user.isAdmin) {
-    return res.render("edit_product", { user });
+    const product = await products.getProductById(productId)
+    return res.render("edit_product", { user, product });
   }
   res.redirect('/');
   return;

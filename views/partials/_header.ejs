@@ -1,22 +1,24 @@
+<!-- <!DOCTYPE html>
+<html lang="en">
+</html>
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Online flower shop</title> -->
+  <!-- <link rel="stylesheet" href="/styles/layout.css" /> -->
+  <!-- <link rel="stylesheet" href="/styles/nav.css"> -->
+  <!-- <link rel="stylesheet" href="/styles/main.css"> -->
+
+
+<!-- </head> -->
 <header>
   <nav class="navbar navbar-expand-md navbar-dark bg-success">
-    <a class="navbar-brand" href="/products">Petals & Bees Shop</a>
-    <!-- <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavAltMarkup" -->
-    <!-- aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
-        <span class="navbar-toggler-icon"></span> -->
-    </button>
+    <a class="navbar-brand" href="/index">Petals & Bees Shop</a>
     <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
-      <!-- <div class="navbar-nav">
-          <a class="nav-item nav-link" href="/urls">My URLs</a>
-          <a class="nav-item nav-link" href="/urls/new">Create New URL</a>
-        </div> -->
 
-      <div class="ml-auto" style="display: flex;">
-        <div>
-          <!-- <a class="nav-link" href="/favourites">My Favourites</a>
-            <a class="nav-link" href="/all_products">All Products</a>
-            <a class="nav-link" href="/add_product">Add New Product</a> -->
-        </div>
+
+      <div class="ml-auto" style="display: flex; justify-content: flex-end;">
+
         <ul>
           <% if (user && user.isAdmin) { %>
             <li><a href="/all_products">All Products</a></li>

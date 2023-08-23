@@ -1,22 +1,22 @@
 const express = require("express");
 const router = express.Router();
+
 const products = require("../db/queries/products");
 
-// edit product
-
-router.post("/:productId/edit", (req, res) => {
-  const body = req.body;
+router.post("/:productId/delete", (req, res) => {
+  //console.log(req.body)
+  const redirectUrl = req.body.redirect_url || '/all_products';
+  const productId = req.params.productId;
   const user_id = req.session.user.id;
-  const productId = req.params.productId
 
   if (!req.session.user || !req.session.user.id) {
     return res.status(401).json({ error: "User not logged in" });
   }
 
   products
-    .editProduct({ ...body, user_id, productId })
-    .then(() => {
-      res.redirect('/all_products')
+    .deleteProduct({ productId, user_id })
+    .then((response) => {
+      res.redirect(redirectUrl);
     })
     .catch((err) => {
       res.status(500).json({ error: err.message });
@@ -24,3 +24,4 @@ router.post("/:productId/edit", (req, res) => {
 });
 
 module.exports = router;
+

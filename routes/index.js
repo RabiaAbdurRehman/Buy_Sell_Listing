@@ -7,7 +7,8 @@ router.get('/', (req, res) => {
     productsQueries.getProductsFromDB()
     .then(products => {
       const templateVars = {products, user: req.session.user };
-       res.render('products', templateVars);
+       //res.render('products', templateVars); //this is the original, RENAMED TO INDEX (RABIA'S)
+       res.render('index', templateVars);
     })
     .catch(err => {
        res

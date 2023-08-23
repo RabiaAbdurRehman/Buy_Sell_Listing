@@ -9,19 +9,20 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
    <!-- Bootstrap CSS -->
-   <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/css/bootstrap.min.css"
+   <!-- <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/css/bootstrap.min.css"
    integrity="sha384-GJzZqFGwb1QTTN6wy59ffF1BuGJpLSa9DkKMp0DgiMDm4iYMj70gZWKYbI706tWS" crossorigin="anonymous">
  <link rel="stylesheet" href="/styles/layout.css" type="text/css" />
  <link rel="preconnect" href="https://fonts.googleapis.com">
  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
- <link href="https://fonts.googleapis.com/css2?family=Source+Sans+Pro:ital,wght@1,300&display=swap" rel="stylesheet">
+ <link href="https://fonts.googleapis.com/css2?family=Source+Sans+Pro:ital,wght@1,300&display=swap" rel="stylesheet"> -->
  <link rel="stylesheet" href="/vendor/normalize-4.1.1.css" />
  <link rel="stylesheet" href="/vendor/border-box.css" />
  <link rel="stylesheet" href="/styles/main.css" />
  <link rel="stylesheet" href="/styles/layout.css" />
+ <link rel="stylesheet" href="/styles/nav.css" />
 
 <!-- Bulma CSS-->
-<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bulma@0.9.4/css/bulma-rtl.min.css">
+<!-- <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bulma@0.9.4/css/bulma-rtl.min.css"> -->
  <script src="/vendor/jquery-3.0.0.js"></script>
  <script defer src="/scripts/products.js"></script>
  <script defer src="/scripts/favourites.js"></script>
@@ -37,6 +38,8 @@
   <link rel="stylesheet" href="/vendor/border-box.css" />
   <link rel="stylesheet" href="/styles/main.css" />
   <link rel="stylesheet" href="/styles/layout.css" />
+  <link rel="stylesheet" href="/styles/nav.css" />
+
 
   <script src="/vendor/jquery-3.0.0.js"></script>
   <script defer src="/scripts/favourites.js"></script>
@@ -78,6 +81,14 @@
                   </h3>
                 </td>
 
+                <td>
+                  <form method="POST" action="/api/favourites/<%=product.id%>/delete" id="delete-form-<%= product.id %>">
+                    <input type="hidden" value="/favourites" name="redirect_url">
+                    <button type="submit" class="btn btn-outline-danger" onclick="deleteProduct('<%= product.id %>')">
+                      Remove from Wishlist
+                    </button>
+                  </form>
+                </td>
             </tr>
             <% } %>
 
@@ -89,6 +100,15 @@
 
 
     </main>
+
+    <script>
+      function deleteProduct(productId) {
+        if (confirm("Are you sure you want to delete this product?")) {
+          const form = document.getElementById(`delete-form-${productId}`);
+          form.submit();
+        }
+      }
+    </script>
 </body>
 
 </html>
