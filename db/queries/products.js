@@ -15,7 +15,7 @@ const getProductsByPrice = function(txt) {
   SELECT * FROM products
   WHERE price >= 100 AND price <= $1
   ORDER BY price;
-`, [`${txt}`])
+`, [`${txt*100}`])
     //[`${currentUserId}`]
     .then(data => {
       return data.rows;

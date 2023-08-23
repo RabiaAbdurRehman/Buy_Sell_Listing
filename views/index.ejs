@@ -20,6 +20,9 @@
   <script defer src="/scripts/app.js"></script>
   <script src="/scripts/products.js"></script>
   <script src="/scripts/favourites.js"></script>
+  <script src="/scripts/add_products.js"></script>
+  <script src="/scripts/edit_product.js"></script>
+
 
 
 </head>
@@ -31,7 +34,7 @@
     <section class="new_search">
       <form class="search-wrapper" id="slide" action="/api/index/filter" method="get">
         <label for="search">Search Items</label>
-        <input type="number" id="search" data-search>
+        <input type="number" step="any"  id="search" data-search>
 
         <button type="submit">submit</button>
       </form>
@@ -42,7 +45,7 @@
             <img class="image" src="<%= product.image_url %>" alt="Product Image" %>
             <div class="item-details">
               <a><%= product.title %></a>
-              <a>$<%= product.price %></a>
+              <a>$<%= product.price/100 %></a>
               <i class="fa-regular fa-heart likedIcone heartImage" id="heart-product-<%= product.id %>" data-productid="<%= product.id %>"></i>
 
             </div>
