@@ -3,18 +3,21 @@ const router = express.Router();
 
 const favouriteQueries = require('../db/queries/favourites');
 
-router.post('/', (req, res) => {
-  const user_id = req.session.userId;
-  const product_id = req.body.productId;
+router.get('/', (req, res) => {
+  if (!req.session.user) return res.redirect('/products')
 
-  favouriteQueries.addProductToFavourites(user_id, product_id)
-    .then(response => {
-      console.log(response);
-      res.status(200).json({ message: 'Product was added to Favourite!!' });
+  favouriteQueries.getFavouritesByUserId(req.session.user.id)
+    .then(data => {
+      res.render('favourites', { products: data, user: req.session.user });
     })
-    .catch(err => {
-      res.status(500).json({ error: err.message });
-    });
+
+  .catch (err => {
+    res.status(500).json({ error: err.message });
+  });
+
 });
+
+
+
 
 module.exports = router;

@@ -1,8 +1,11 @@
+<!-- SILVIA -->
+
+
 <!DOCTYPE html>
 <html lang="en">
 
 <head>
-  <title>Users</title>
+  <title>Edit Product</title>
 
   <meta charset="UTF-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -25,6 +28,8 @@
   <script src="/vendor/jquery-3.0.0.js"></script>
   <script defer src="/scripts/products.js"></script>
   <script defer src="/scripts/favourites.js"></script>
+  <script src="/scripts/edit_product.js"></script>
+
 
   <!-- Font awesome -->
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.1/css/all.min.css"
@@ -33,26 +38,24 @@
   <script src="https://cdnjs.cloudflare.com/ajax/libs/timeago.js/4.0.2/timeago.min.js"
     integrity="sha512-SVDh1zH5N9ChofSlNAK43lcNS7lWze6DTVx1JCXH1Tmno+0/1jMpdbR8YDgDUfcUrPp1xyE53G42GFrcM0CMVg=="
     crossorigin="anonymous" referrerpolicy="no-referrer"></script>
-
-  <link rel="stylesheet" href="/vendor/normalize-4.1.1.css" />
-  <link rel="stylesheet" href="/vendor/border-box.css" />
-  <link rel="stylesheet" href="/styles/main.css" />
-  <link rel="stylesheet" href="/styles/layout.css" />
-
-  <script src="/vendor/jquery-3.0.0.js"></script>
-  <script defer src="/scripts/products.js"></script>
-  <script defer src="/scripts/favourites.js"></script>
 </head>
 
 <body>
   <%- include('partials/_header') %>
+<form method="post" action="/api/edit-product">
+  <fieldset>
+     <legend>Edit Product</legend>
 
-    <h1>Hello honeybee! Have a look at our flowers!</h1>
-
-
-    <button id="fetch-products">Fetch Products</button>
-    <ul id="products"></ul>
-
-</body>
-
-</html>
+     <label>Name</label><br>
+     <input type="text" name="title"><br>
+     <label>price</label><br>
+     <input type="number" name="price"><br>
+      <label>Description</label><br>
+      <input type="text" name="description"><br>
+      <label>Picture</label><br>
+      <input type="" name="picture"><br>
+  </fieldset>
+<button type="submit" class="btn btn-outline-danger" name="editButton">
+     Update
+   </button>
+ </form>

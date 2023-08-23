@@ -1,4 +1,4 @@
-// Client facing scripts here
+// User can like the item
 $(() => {
   $('#fetch-users').on('click', () => {
     $.ajax({

@@ -1,18 +1,23 @@
 const express = require("express");
 const router = express.Router();
 
-const favouriteQueries = require("../db/queries/favourites");
+//SILVIA//
+
+
+const products = require("../db/queries/products");
 
 router.post("/", (req, res) => {
-  const product_id = req.body.productId;
-  console.log(req.session)
+  const body = req.body;
+  console.log(body);
   const user_id = req.session.user.id;
 
-  favouriteQueries
-    .addProductToFavourites(user_id, product_id)
+  products
+
+    .editProduct({ ...body, user_id})
+
     .then((response) => {
       console.log(response.rows);
-      res.status(200).json({ message: "Product was added to Favourite!" });
+      res.status(200).json("Product was updated");
     })
     .catch((err) => {
       res.status(500).json({ error: err.message });
