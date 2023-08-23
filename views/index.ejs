@@ -38,16 +38,17 @@
       </form>
     </section>
     <section class="search-results" id="searchResults">
-      <div class="item">
         <% for (let product of products) { %>
           <div class="Eachitem" id="product-card-<%= product.id %>">
             <img class="image" src="<%= product.image_url %>" alt="Product Image" %>
-            <a><%= product.title %></a>
-            <a>$<%= product.price %></a>
-            <i class="fa-regular fa-heart likedIcone heartImage" id="heart-product-<%= product.id %>" data-productid="<%= product.id %>"></i>
+            <div class="item-details">
+              <a><%= product.title %></a>
+              <a>$<%= product.price %></a>
+              <i class="fa-regular fa-heart likedIcone heartImage" id="heart-product-<%= product.id %>" data-productid="<%= product.id %>"></i>
+
+            </div>
           </div>
         <% } %>
-      </div>
     </section>
   </main>
 
