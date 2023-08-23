@@ -39,7 +39,7 @@
     </section>
     <section class="search-results" id="searchResults">
         <% for (let product of products) { %>
-          <div class="Eachitem" id="product-card-<%= product.id %>">
+          <div class="item" id="product-card-<%= product.id %>">
             <img class="image" src="<%= product.image_url %>" alt="Product Image" %>
             <div class="item-details">
               <a><%= product.title %></a>
