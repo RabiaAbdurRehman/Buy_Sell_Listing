@@ -5,7 +5,9 @@ const nodemailer = require('nodemailer');
 
 // Route to display the message form
 router.get('/', (req, res) => {
-  res.render('contact_form'); // Create a contact form template
+  const templateVars = {user: req.session.user};
+
+  res.render('contact_form',templateVars); // Create a contact form template
 });
 
 // nodemailer transporter
@@ -32,7 +34,6 @@ router.post('/', async (req, res) => {
 
     // Send the email
     await transporter.sendMail(mailOptions);
-
 
     // Redirect the user to a confirmation page
     res.render('message_sent'); // Create a message sent confirmation template

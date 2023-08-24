@@ -27,6 +27,12 @@ header nav {
     flex-direction: row;
     justify-content: space-between;
     align-items: center;
+  }
+
+  ul{
+    list-style: none;
+    gap: 10px;
+  }
 
     // Style the login form
     .login-form {
@@ -36,4 +42,8 @@ header nav {
       }
     }
   }
+
+.form{
+  display: flex;
+    flex-direction: column;
 }

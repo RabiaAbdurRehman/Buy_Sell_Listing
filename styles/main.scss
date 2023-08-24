@@ -152,9 +152,9 @@ body {
     // max-width: 60%;
     // height: auto;
   }
-  .heartImage:hover{
-    box-shadow: 5px 5px 5px black;
-  }
+  // .heartImage:hover{
+  //   box-shadow: 5px 5px 5px black;
+  // }
   .item{
     // padding: 10px;
     // // margin: 5px;
@@ -178,9 +178,23 @@ body {
       margin-bottom: 5px;
     }
   }
-  .heartImage{
-    color: red;
+  // .heartImage{
+  //   color: red;
+  // }
+
+  .fa-heart {
+    /* Define default styles */
+    color: black; /* Set the default icon color */
+    transition: color 0.3s; /* Add a smooth color transition effect */
   }
+
+  .likedIcone:hover {
+    /* Apply styles when hovered */
+    background: red;
+    color: red; /* Change the icon color to red */
+    cursor: pointer; /* Change the cursor to a pointer on hover */
+  }
+
 
 
   // .title {
@@ -196,3 +210,79 @@ body {
   // }
 }
 
+/* Add this to your existing CSS stylesheet */
+
+/* Style for the whole page */
+body {
+  font-family: Arial, sans-serif;
+  background-color: #f5f5f5;
+}
+
+/* Style for the main content */
+main {
+  max-width: 800px;
+  margin: 0 auto;
+  padding: 20px;
+  background-color: white;
+  box-shadow: 0px 0px 5px rgba(0, 0, 0, 0.1);
+}
+
+/* Style for the table */
+.table {
+  width: 100%;
+  border-collapse: collapse;
+  border: 1px solid #ccc;
+}
+
+/* Style for table header cells */
+.table th {
+  background-color: #f2f2f2;
+  padding: 10px;
+  text-align: left;
+  border: 1px solid #ccc;
+}
+
+/* Style for table data cells */
+.table td {
+  padding: 10px;
+  border: 1px solid #ccc;
+}
+
+/* Style for product photo */
+.product-photo img {
+  width: 80px;
+  height: auto;
+  border-radius: 5px;
+}
+
+/* Style for product details */
+.product-details {
+  width: 40%;
+}
+
+/* Style for product title */
+.product-title {
+  font-size: 18px;
+  margin-bottom: 5px;
+}
+
+/* Style for product price */
+.product-price {
+  font-size: 16px;
+  color: #e74c3c;
+}
+
+/* Style for product actions */
+.product-actions button {
+  padding: 5px 10px;
+  background-color: #e74c3c;
+  color: white;
+  border: none;
+  border-radius: 3px;
+  cursor: pointer;
+}
+
+/* Style for hovering over buttons */
+.product-actions button:hover {
+  background-color: #c0392b;
+}
