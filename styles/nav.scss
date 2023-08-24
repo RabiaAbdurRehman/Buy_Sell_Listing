@@ -1,29 +1,39 @@
+// Define variables for colors and sizes
 $nav-background-color: pink;
 $nav-color: #ffffff;
 $nav-height: 120px;
-// $nav-width: 100%
 
+// Style the navigation bar
 header nav {
+  display: flex;
+  width: 100%;
+  background-color: $nav-background-color;
+  justify-content: space-between;
+  align-items: center;
+  padding-top: 20px;
+  position: fixed;
+  top: 0;
+  left: 0;
+
+  // Style the brand/logo
+  .navbar-brand {
+    font-size: 24px;
+    text-decoration: none;
+  }
+
+  // Style the navigation links
+  .router {
     display: flex;
-    width: 100%;
-    background-color: $nav-background-color ;
+    flex-direction: row;
     justify-content: space-between;
     align-items: center;
-    padding-top: 20px;
-    position: fixed;
-    top: 0;
-    left: 0; //bring bar line to left
-    .navbar-brand {
-        font-size: 24px; /* Adjust font size */
-        text-decoration: none;
-        // float:left;
-      }
-      .login-form {
-        // float: right;
-        a {
-            text-decoration: none;
-            margin-right: 20px; /* Add spacing between login and other elements */
-          }
-      }
 
+    // Style the login form
+    .login-form {
+      a {
+        text-decoration: none;
+        margin-right: 20px;
+      }
+    }
+  }
 }

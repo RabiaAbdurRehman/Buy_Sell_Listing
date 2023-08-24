@@ -72,6 +72,9 @@ const editProductApiRoute = require('./routes/edit_product-api');
 
 const deleteProductApiRoute = require('./routes/delete_product-api');
 
+//Messages
+const messagesRoute = require('./routes/messages');
+
 
 // Login
 app.use('/login', loginRoute);
@@ -100,6 +103,9 @@ app.use('/products', editProductRoute);
 app.use('/api/products', editProductApiRoute);
 
 app.use('/api/products', deleteProductApiRoute);
+
+// Message
+app.use('/contact',messagesRoute);
 
 
 // Home page
