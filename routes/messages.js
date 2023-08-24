@@ -14,8 +14,8 @@ router.get('/', (req, res) => {
 const transporter = nodemailer.createTransport({
   service: 'gmail',
   auth: {
-    user: 'your_admin_email@gmail.com', // Your admin email
-    pass: 'your_admin_email_password' // Your admin email password
+    user: 'ao1342601@gmail.com', // Your admin email
+    pass: 'dummypass' // Your admin email password
   }
 });
 
@@ -27,7 +27,7 @@ router.post('/', async (req, res) => {
     // Compose the email content
     const mailOptions = {
       from: email,
-      to: 'your_admin_email@gmail.com', // Admin's email address
+      to: 'ao1342601@gmail.com', // Admin's email address
       subject: `New message from ${name}`,
       text: message
     };
