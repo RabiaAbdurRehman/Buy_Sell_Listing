@@ -1,4 +1,4 @@
-LHL Node Skeleton
+Petals & Bees Shop is a full stack web application built with Node and Express using EJS templates that allows a user to post items that other users can see, like and contact about.
 =========
 
 ## Project Setup
